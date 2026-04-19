@@ -34,16 +34,11 @@ async function main(): Promise<void> {
     validateEnv(env);
 
     log("info", "Starting monitor run", {
-      sourceListUrl: env.sourceListUrl,
+      sourceListUrls: env.sourceListUrls,
       dryRun: env.dryRun
     });
 
-    const listHtml = await fetchListPage(env.sourceListUrl, {
-      userAgent: env.userAgent,
-      timeoutMs: env.monitorTimeoutMs
-    });
-
-    let animals = parseListPage(listHtml, env.sourceListUrl);
+    let animals = await loadAnimalsFromSourceLists(env);
     animals = await enrichAnimalsWithImages(animals, env);
 
     const previousIds = new Set(snapshotState.data.animals.map((animal) => animal.id));
@@ -106,6 +101,30 @@ async function main(): Promise<void> {
 }
 
 type Publisher = Awaited<ReturnType<typeof createBlueskyPublisher>>;
+
+/**
+ * 設定された複数の一覧ページを順に取得し、抽出結果をまとめる。
+ */
+async function loadAnimalsFromSourceLists(env: ReturnType<typeof loadEnv>): Promise<Animal[]> {
+  const animals: Animal[] = [];
+
+  for (const sourceListUrl of env.sourceListUrls) {
+    const listHtml = await fetchListPage(sourceListUrl, {
+      userAgent: env.userAgent,
+      timeoutMs: env.monitorTimeoutMs
+    });
+    const parsed = parseListPage(listHtml, sourceListUrl);
+
+    animals.push(...parsed);
+
+    log("info", "Parsed source list page", {
+      sourceListUrl,
+      animalCount: parsed.length
+    });
+  }
+
+  return animals;
+}
 
 /**
  * 利用可能な投稿先設定から実際の publisher を初期化する。

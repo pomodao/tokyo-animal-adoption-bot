@@ -10,16 +10,10 @@ export function parseListPage(html: string, sourceUrl: string): Animal[] {
   const chunks = html.split('<div class="topMainBox">').slice(1);
 
   if (chunks.length === 0) {
-    throw new Error("No animal cards found in list page");
+    return [];
   }
 
-  const animals = chunks.map((chunk, index) => parseAnimalCard(chunk, sourceUrl, index));
-
-  if (animals.length === 0) {
-    throw new Error("List page parsing produced no animals");
-  }
-
-  return animals;
+  return chunks.map((chunk, index) => parseAnimalCard(chunk, sourceUrl, index));
 }
 
 /**
@@ -45,6 +39,7 @@ function parseAnimalCard(chunk: string, sourceUrl: string, index: number): Anima
   return {
     id,
     name,
+    category: detectAnimalCategory(sourceUrl),
     branch,
     detailUrl: toAbsoluteUrl(detailPath, sourceUrl),
     sourceUrl,
@@ -70,4 +65,11 @@ function matchOrThrow(value: string, pattern: RegExp, label: string): string {
  */
 function matchOptional(value: string, pattern: RegExp): string | undefined {
   return pattern.exec(value)?.[1];
+}
+
+/**
+ * 一覧 URL から監視対象カテゴリを判定する。
+ */
+function detectAnimalCategory(sourceUrl: string): Animal["category"] {
+  return sourceUrl.endsWith("/cat") ? "cat" : "dog";
 }

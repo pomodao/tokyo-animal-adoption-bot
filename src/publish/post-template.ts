@@ -21,7 +21,7 @@ export function defaultPostTemplate(animal: Animal): string {
     ...(detailLine ? [detailLine] : []),
     `詳細: ${animal.detailUrl}`,
     "",
-    "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
+    getHashtags(animal)
   ].join("\n");
 }
 
@@ -30,4 +30,15 @@ export function defaultPostTemplate(animal: Animal): string {
  */
 export function renderPostText(animal: Animal): string {
   return defaultPostTemplate(animal);
+}
+
+/**
+ * 動物カテゴリに応じたハッシュタグ行を返す。
+ */
+function getHashtags(animal: Animal): string {
+  if (animal.category === "dog") {
+    return "#犬 #いぬ #保護犬 #犬のいる暮らし #里親募集 #dog #dogs #RescueDog #DogsOfBluesky";
+  }
+
+  return "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky";
 }

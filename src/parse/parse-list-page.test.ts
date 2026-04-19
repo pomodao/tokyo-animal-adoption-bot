@@ -17,6 +17,7 @@ test("parseListPage extracts animals from the list page fixture", async () => {
   assert.deepEqual(animals[0], {
     id: "25ネ16",
     name: "りゅう",
+    category: "cat",
     branch: "本所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
     imageUrl: "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69bb6dab255ca.jpg",
@@ -25,6 +26,7 @@ test("parseListPage extracts animals from the list page fixture", async () => {
   assert.deepEqual(animals[1], {
     id: "25T82",
     name: "チャナ",
+    category: "cat",
     branch: "多摩支所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
     imageUrl: "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg",
@@ -32,11 +34,39 @@ test("parseListPage extracts animals from the list page fixture", async () => {
   });
 });
 
-test("parseListPage throws when no animal cards are present", () => {
-  assert.throws(
-    () => parseListPage("<html><body><div>empty</div></body></html>", sourceUrl),
-    /No animal cards found/
+test("parseListPage returns an empty array when no animal cards are present", () => {
+  const animals = parseListPage(
+    [
+      "<html><body>",
+      "<h3>現在、譲渡動物情報はありません。</h3>",
+      "</body></html>"
+    ].join(""),
+    "https://shuyojoho.metro.tokyo.lg.jp/generals/"
   );
+
+  assert.deepEqual(animals, []);
+});
+
+test("parseListPage marks animals from the dog list as dog", () => {
+  const animals = parseListPage(
+    `
+      <div class="topMainBox">
+        <div class="imgWrapper">
+          <p><a href="/generals/detail/9999"><img src="/img/upload/test.jpg" /></a></p>
+          <h2>管理番号 25犬1 <span>詳細</span></h2>
+        </div>
+        <dl>
+          <dt>名前</dt>
+          <dd>ポチ</dd>
+          <dt>管理支所</dt>
+          <dd>本所</dd>
+        </dl>
+      </div>
+    `,
+    "https://shuyojoho.metro.tokyo.lg.jp/generals/"
+  );
+
+  assert.equal(animals[0]?.category, "dog");
 });
 
 test("parseListPage throws when a required field is missing", () => {

@@ -8,6 +8,7 @@ function createAnimal(overrides: Partial<Animal> = {}): Animal {
   return {
     id: "25ネ16",
     name: "りゅう",
+    category: "cat",
     branch: "本所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
     sourceUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",

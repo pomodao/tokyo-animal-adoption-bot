@@ -6,6 +6,7 @@
       {
         "id": "25ネ16",
         "name": "りゅう",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -15,6 +16,7 @@
       {
         "id": "25-66",
         "name": "オセロ",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8642",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -24,6 +26,7 @@
       {
         "id": "25T82",
         "name": "チャナ",
+        "category": "cat",
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -33,6 +36,7 @@
       {
         "id": "25-75",
         "name": "くろみつ",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8669",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -42,6 +46,7 @@
       {
         "id": "25ネ7",
         "name": "エルク",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8514",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -51,6 +56,7 @@
       {
         "id": "24ネ90",
         "name": "みたらし",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8350",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -60,6 +66,7 @@
       {
         "id": "24ネ57",
         "name": "シン",
+        "category": "cat",
         "branch": "本所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8203",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",

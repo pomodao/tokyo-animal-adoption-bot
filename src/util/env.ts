@@ -2,7 +2,7 @@ import process from "node:process";
 
 // 環境変数の読み込みと必須設定の検証を一箇所に閉じ込める。
 export type AppEnv = {
-  sourceListUrl: string;
+  sourceListUrls: string[];
   monitorTimeoutMs: number;
   userAgent: string;
   dryRun: boolean;
@@ -17,7 +17,7 @@ export type AppEnv = {
  * 実行に必要な環境変数を読み込み、アプリ設定へ変換する。
  */
 export function loadEnv(): AppEnv {
-  const sourceListUrl = process.env.SOURCE_LIST_URL ?? "https://shuyojoho.metro.tokyo.lg.jp/generals/cat";
+  const sourceListUrls = parseSourceListUrls(process.env.SOURCE_LIST_URL);
   const userAgent =
     process.env.USER_AGENT ??
     "tokyo-animal-adoption-bot/1.0 (+https://github.com/owner/repo)";
@@ -31,7 +31,7 @@ export function loadEnv(): AppEnv {
   const blueskyEnabled = process.env.BLUESKY_ENABLED !== "false";
 
   return {
-    sourceListUrl,
+    sourceListUrls,
     monitorTimeoutMs,
     userAgent,
     dryRun,
@@ -41,6 +41,24 @@ export function loadEnv(): AppEnv {
     ...(blueskyIdentifier ? { blueskyIdentifier } : {}),
     ...(blueskyAppPassword ? { blueskyAppPassword } : {})
   };
+}
+
+/**
+ * 監視対象 URL を環境変数から読み込み、カンマまたは改行区切りで複数指定できるようにする。
+ */
+function parseSourceListUrls(value: string | undefined): string[] {
+  const urls = (
+    value ??
+    [
+      "https://shuyojoho.metro.tokyo.lg.jp/generals/",
+      "https://shuyojoho.metro.tokyo.lg.jp/generals/cat"
+    ].join(",")
+  )
+    .split(/[\n,]/)
+    .map((url) => url.trim())
+    .filter((url) => url.length > 0);
+
+  return [...new Set(urls)];
 }
 
 /**

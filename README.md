@@ -7,8 +7,9 @@
 - この bot は非公式の個人開発プロジェクトです。東京都動物愛護相談センターおよび東京都とは関係ありません。
 - この bot に関する問い合わせや要望を、東京都動物愛護相談センターへ行わないでください。
 
-現在は次のページを監視対象にしています。
+現在は次のページを監視対象にできます。
 
+- 犬: https://shuyojoho.metro.tokyo.lg.jp/generals/
 - 猫・その他: https://shuyojoho.metro.tokyo.lg.jp/generals/cat
 
 ## できること
@@ -106,7 +107,8 @@ DRY_RUN=true npm run monitor
 
 - `SOURCE_LIST_URL`
   - 監視対象の一覧ページ URL
-  - 既定値: `https://shuyojoho.metro.tokyo.lg.jp/generals/cat`
+  - カンマまたは改行区切りで複数指定可能
+  - 既定値: `https://shuyojoho.metro.tokyo.lg.jp/generals/` と `https://shuyojoho.metro.tokyo.lg.jp/generals/cat`
 - `USER_AGENT`
   - 取得時に使う User-Agent
   - 既定値: `tokyo-animal-adoption-bot/1.0 (+https://github.com/owner/repo)`
@@ -155,12 +157,12 @@ GitHub Actions で通常運用する場合は、少なくとも次を `Settings`
 
 ## state ファイル
 
-- `state/cat.json`
+- `state/animals.json`
   - 最新の掲載動物一覧
 - `state/posted.json`
   - 投稿済みの管理番号と投稿先情報
 
-`state/cat.json` の各動物には `firstSeenAt` を持たせています。これは画像取得日時ではなく、この bot がその動物を最初に検知した時刻です。
+`state/animals.json` の各動物には `firstSeenAt` を持たせています。これは画像取得日時ではなく、この bot がその動物を最初に検知した時刻です。
 
 `state/posted.json` は重複投稿防止のための永続状態です。現在の実装では古い投稿記録を自動削除しないため、運用を続けるほどデータは増えていきます。件数が十分に増えた場合は、将来的に pruning 方針を検討します。
 
@@ -185,10 +187,15 @@ GitHub Actions で通常運用する場合は、少なくとも次を `Settings`
 - 監視対象ページや SNS API の仕様変更により、修正が必要になることがあります
 - public repository の scheduled workflow は、GitHub の inactivity ルールの影響を受ける場合があります
 
+犬と猫を両方監視したい場合の例:
+
+```sh
+SOURCE_LIST_URL="https://shuyojoho.metro.tokyo.lg.jp/generals/,https://shuyojoho.metro.tokyo.lg.jp/generals/cat" npm run monitor
+```
+
 ## 今後の候補
 
 - `X` 投稿の追加
-- 犬の一覧監視の追加
 - 通知文面の改善
 - 画像処理の強化
 

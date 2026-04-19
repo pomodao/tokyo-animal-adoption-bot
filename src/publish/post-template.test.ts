@@ -6,6 +6,7 @@ test("renderPostText renders the default template with animal values", () => {
   const text = renderPostText({
     id: "25ネ16",
     name: "りゅう",
+    category: "cat",
     branch: "本所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
     sourceUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -40,6 +41,7 @@ test("renderPostText omits only missing fragments in a slash-delimited line", ()
     {
       id: "25ネ16",
       name: "りゅう",
+      category: "cat",
       branch: "本所",
       detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
       sourceUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
@@ -57,6 +59,7 @@ test("defaultPostTemplate omits the detail line when all optional attributes are
   const text = defaultPostTemplate({
     id: "25ネ16",
     name: "りゅう",
+    category: "cat",
     branch: "本所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
     sourceUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/cat"
@@ -76,4 +79,18 @@ test("defaultPostTemplate omits the detail line when all optional attributes are
       "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
     ].join("\n")
   );
+});
+
+test("defaultPostTemplate switches hashtags for dog posts", () => {
+  const text = defaultPostTemplate({
+    id: "25犬1",
+    name: "ポチ",
+    category: "dog",
+    branch: "本所",
+    detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/9999",
+    sourceUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/"
+  });
+
+  assert.match(text, /#犬 #いぬ #保護犬 #犬のいる暮らし #里親募集 #dog #dogs #RescueDog #DogsOfBluesky/);
+  assert.doesNotMatch(text, /#猫 #ねこ #保護猫/);
 });

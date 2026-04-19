@@ -24,7 +24,7 @@ export function parseDetailPage(html: string, detailUrl: string): AnimalDetail {
     ...(sex ? { sex } : {}),
     ...(coatColor ? { coatColor } : {}),
     ...(weight ? { weight } : {}),
-    ...(estimatedAge ? { estimatedAge } : {})
+    ...(estimatedAge ? { estimatedAge } : {}),
   };
 }
 
@@ -41,14 +41,8 @@ export function parseDetailPageImage(html: string, detailUrl: string): string | 
 function extractDetailText(html: string, label: string): string | undefined {
   const escapedLabel = escapeForRegExp(label);
   const patterns = [
-    new RegExp(
-      `<th[^>]*>\\s*${escapedLabel}\\s*<\\/th>\\s*<td[^>]*>([\\s\\S]*?)<\\/td>`,
-      "i"
-    ),
-    new RegExp(
-      `<dt[^>]*>\\s*${escapedLabel}\\s*<\\/dt>\\s*<dd[^>]*>([\\s\\S]*?)<\\/dd>`,
-      "i"
-    )
+    new RegExp(`<th[^>]*>\\s*${escapedLabel}\\s*<\\/th>\\s*<td[^>]*>([\\s\\S]*?)<\\/td>`, "i"),
+    new RegExp(`<dt[^>]*>\\s*${escapedLabel}\\s*<\\/dt>\\s*<dd[^>]*>([\\s\\S]*?)<\\/dd>`, "i"),
   ];
 
   for (const pattern of patterns) {

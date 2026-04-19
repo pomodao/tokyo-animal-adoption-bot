@@ -67,7 +67,7 @@ export async function createBlueskyPublisher(config: {
             bytes: image.bytes,
             contentType: image.contentType,
             userAgent: config.userAgent,
-            timeoutMs: config.timeoutMs
+            timeoutMs: config.timeoutMs,
           });
 
           embed = {
@@ -75,9 +75,9 @@ export async function createBlueskyPublisher(config: {
             images: [
               {
                 alt: image.alt,
-                image: uploaded.blob
-              }
-            ]
+                image: uploaded.blob,
+              },
+            ],
           };
         } catch (error) {
           console.warn(
@@ -87,9 +87,9 @@ export async function createBlueskyPublisher(config: {
               message: "Failed to upload image to Bluesky, falling back to text-only post",
               details: {
                 animalId: animal.id,
-                error: error instanceof Error ? error.message : String(error)
-              }
-            })
+                error: error instanceof Error ? error.message : String(error),
+              },
+            }),
           );
         }
       }
@@ -99,7 +99,7 @@ export async function createBlueskyPublisher(config: {
         headers: {
           authorization: `Bearer ${session.accessJwt}`,
           "content-type": "application/json",
-          "user-agent": config.userAgent
+          "user-agent": config.userAgent,
         },
         body: JSON.stringify({
           repo: session.did,
@@ -109,10 +109,10 @@ export async function createBlueskyPublisher(config: {
             text,
             ...(facets.length > 0 ? { facets } : {}),
             createdAt: new Date().toISOString(),
-            ...(embed ? { embed } : {})
-          }
+            ...(embed ? { embed } : {}),
+          },
         }),
-        signal: AbortSignal.timeout(config.timeoutMs)
+        signal: AbortSignal.timeout(config.timeoutMs),
       });
 
       if (!response.ok) {
@@ -120,7 +120,7 @@ export async function createBlueskyPublisher(config: {
         return {
           ok: false,
           platform: "bluesky",
-          reason: `Bluesky createRecord failed with HTTP ${response.status}: ${body}`
+          reason: `Bluesky createRecord failed with HTTP ${response.status}: ${body}`,
         };
       }
 
@@ -130,16 +130,16 @@ export async function createBlueskyPublisher(config: {
         return {
           ok: false,
           platform: "bluesky",
-          reason: "Bluesky createRecord response did not contain uri"
+          reason: "Bluesky createRecord response did not contain uri",
         };
       }
 
       return {
         ok: true,
         platform: "bluesky",
-        remoteId: body.uri
+        remoteId: body.uri,
       };
-    }
+    },
   };
 }
 
@@ -148,7 +148,7 @@ export async function createBlueskyPublisher(config: {
  */
 export function buildFacets(text: string): Facet[] {
   return [...buildLinkFacets(text), ...buildTagFacets(text)].sort(
-    (left, right) => left.index.byteStart - right.index.byteStart
+    (left, right) => left.index.byteStart - right.index.byteStart,
   );
 }
 
@@ -175,14 +175,14 @@ export function buildLinkFacets(text: string): Facet[] {
     facets.push({
       index: {
         byteStart: Buffer.byteLength(text.slice(0, start), "utf8"),
-        byteEnd: Buffer.byteLength(text.slice(0, start + url.length), "utf8")
+        byteEnd: Buffer.byteLength(text.slice(0, start + url.length), "utf8"),
       },
       features: [
         {
           $type: "app.bsky.richtext.facet#link",
-          uri: url
-        }
-      ]
+          uri: url,
+        },
+      ],
     });
   }
 
@@ -216,14 +216,14 @@ export function buildTagFacets(text: string): Facet[] {
     facets.push({
       index: {
         byteStart: Buffer.byteLength(text.slice(0, tagStart), "utf8"),
-        byteEnd: Buffer.byteLength(text.slice(0, tagStart + tagText.length), "utf8")
+        byteEnd: Buffer.byteLength(text.slice(0, tagStart + tagText.length), "utf8"),
       },
       features: [
         {
           $type: "app.bsky.richtext.facet#tag",
-          tag
-        }
-      ]
+          tag,
+        },
+      ],
     });
   }
 
@@ -244,13 +244,13 @@ async function createSession(config: {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "user-agent": config.userAgent
+      "user-agent": config.userAgent,
     },
     body: JSON.stringify({
       identifier: config.identifier,
-      password: config.appPassword
+      password: config.appPassword,
     }),
-    signal: AbortSignal.timeout(config.timeoutMs)
+    signal: AbortSignal.timeout(config.timeoutMs),
   });
 
   if (!response.ok) {
@@ -266,7 +266,7 @@ async function createSession(config: {
 
   return {
     did: body.did,
-    accessJwt: body.accessJwt
+    accessJwt: body.accessJwt,
   };
 }
 
@@ -286,10 +286,10 @@ async function uploadBlob(config: {
     headers: {
       authorization: `Bearer ${config.accessJwt}`,
       "content-type": config.contentType,
-      "user-agent": config.userAgent
+      "user-agent": config.userAgent,
     },
     body: new Uint8Array(config.bytes),
-    signal: AbortSignal.timeout(config.timeoutMs)
+    signal: AbortSignal.timeout(config.timeoutMs),
   });
 
   if (!response.ok) {

@@ -33,15 +33,15 @@ function sortState<T>(state: StateFile<T>): StateFile<T> {
 
   if (isRecordWithRecordField(data)) {
     const sortedInner = Object.fromEntries(
-      Object.entries(data.records).sort(([left], [right]) => left.localeCompare(right, "ja"))
+      Object.entries(data.records).sort(([left], [right]) => left.localeCompare(right, "ja")),
     );
 
     return {
       ...state,
       data: {
         ...data,
-        records: sortedInner
-      } as T
+        records: sortedInner,
+      } as T,
     };
   }
 

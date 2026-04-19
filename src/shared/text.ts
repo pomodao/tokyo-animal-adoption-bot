@@ -3,9 +3,9 @@ const namedEntities: Record<string, string> = {
   amp: "&",
   lt: "<",
   gt: ">",
-  quot: "\"",
+  quot: '"',
   apos: "'",
-  nbsp: " "
+  nbsp: " ",
 };
 
 /**
@@ -36,7 +36,11 @@ export function decodeHtml(value: string): string {
  * 比較や出力に使いやすいよう空白と改行を正規化する。
  */
 export function normalizeWhitespace(value: string): string {
-  return value.replace(/\r/g, "").replace(/[ \t\u3000]+/g, " ").replace(/\n+/g, "\n").trim();
+  return value
+    .replace(/\r/g, "")
+    .replace(/[ \t\u3000]+/g, " ")
+    .replace(/\n+/g, "\n")
+    .trim();
 }
 
 /**

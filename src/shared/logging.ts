@@ -8,7 +8,7 @@ export function log(level: Level, message: string, details?: Record<string, unkn
     timestamp: new Date().toISOString(),
     level,
     message,
-    ...(details ? { details } : {})
+    ...(details ? { details } : {}),
   };
 
   const line = JSON.stringify(entry);

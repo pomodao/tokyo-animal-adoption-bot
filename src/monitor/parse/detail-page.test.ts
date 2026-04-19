@@ -20,29 +20,24 @@ test("詳細ページからメイン画像 URL と動物属性を抽出できる
     sex: "オス",
     coatColor: "キジ白",
     weight: "4.2kg",
-    estimatedAge: "3歳くらい"
+    estimatedAge: "3歳くらい",
   });
 });
 
 test("画像がない場合は詳細ページ画像の抽出結果が undefined になる", () => {
-  const imageUrl = parseDetailPageImage("<div id=\"mainPhoto\"></div>", detailUrl);
+  const imageUrl = parseDetailPageImage('<div id="mainPhoto"></div>', detailUrl);
 
   assert.equal(imageUrl, undefined);
 });
 
 test("詳細ページでは取得できた属性だけを返す", () => {
   const detail = parseDetailPage(
-    [
-      "<dl>",
-      "<dt>種類</dt><dd>日本猫</dd>",
-      "<dt>性別</dt><dd>メス</dd>",
-      "</dl>"
-    ].join(""),
-    detailUrl
+    ["<dl>", "<dt>種類</dt><dd>日本猫</dd>", "<dt>性別</dt><dd>メス</dd>", "</dl>"].join(""),
+    detailUrl,
   );
 
   assert.deepEqual(detail, {
     breed: "日本猫",
-    sex: "メス"
+    sex: "メス",
   });
 });

@@ -21,7 +21,7 @@ test("一覧ページ fixture から動物情報を抽出できる", async () =>
     branch: "本所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
     imageUrl: "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69bb6dab255ca.jpg",
-    sourceUrl
+    sourceUrl,
   });
   assert.deepEqual(animals[1], {
     id: "25T82",
@@ -30,18 +30,14 @@ test("一覧ページ fixture から動物情報を抽出できる", async () =>
     branch: "多摩支所",
     detailUrl: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
     imageUrl: "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg",
-    sourceUrl
+    sourceUrl,
   });
 });
 
 test("動物カードがない一覧ページでは空配列を返す", () => {
   const animals = parseListPage(
-    [
-      "<html><body>",
-      "<h3>現在、譲渡動物情報はありません。</h3>",
-      "</body></html>"
-    ].join(""),
-    "https://shuyojoho.metro.tokyo.lg.jp/generals/"
+    ["<html><body>", "<h3>現在、譲渡動物情報はありません。</h3>", "</body></html>"].join(""),
+    "https://shuyojoho.metro.tokyo.lg.jp/generals/",
   );
 
   assert.deepEqual(animals, []);
@@ -63,7 +59,7 @@ test("犬一覧ページの動物には dog カテゴリが付く", () => {
         </dl>
       </div>
     `,
-    "https://shuyojoho.metro.tokyo.lg.jp/generals/"
+    "https://shuyojoho.metro.tokyo.lg.jp/generals/",
   );
 
   assert.equal(animals[0]?.category, "dog");

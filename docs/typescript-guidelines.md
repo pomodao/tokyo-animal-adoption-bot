@@ -100,6 +100,14 @@ src/
 - `erasableSyntaxOnly: true` を前提に、Node.js の type stripping で扱えない TypeScript 構文は持ち込まない
 - `noEmit: true`
 
+## Lint / Format 方針
+
+- `Prettier` は整形だけを担当し、コードスタイルの揺れを減らす
+- 行末セミコロンは付ける方針とし、ASI に依存しない
+- `ESLint` はバグ予防と TypeScript 運用ルールの強制を担当する
+- import の整理、未使用変数、未処理 Promise、`any` の持ち込みなど、機械的に判定できるものを優先して制約する
+- 責務分離や差分判定ルールのような設計判断は lint に押し込まず、ドキュメントとレビューで維持する
+
 ## モジュール方針
 
 - Node.js の標準に合わせて ESM を基本とする

@@ -19,8 +19,7 @@ export type AppEnv = {
 export function loadEnv(): AppEnv {
   const sourceListUrls = parseSourceListUrls(process.env.SOURCE_LIST_URL);
   const userAgent =
-    process.env.USER_AGENT ??
-    "tokyo-animal-adoption-bot/1.0 (+https://github.com/owner/repo)";
+    process.env.USER_AGENT ?? "tokyo-animal-adoption-bot/1.0 (+https://github.com/owner/repo)";
 
   const dryRun = process.env.DRY_RUN === "true";
   const monitorTimeoutMs = parseInteger(process.env.FETCH_TIMEOUT_MS, 15_000);
@@ -39,7 +38,7 @@ export function loadEnv(): AppEnv {
     blueskyEnabled,
     blueskyServiceUrl,
     ...(blueskyIdentifier ? { blueskyIdentifier } : {}),
-    ...(blueskyAppPassword ? { blueskyAppPassword } : {})
+    ...(blueskyAppPassword ? { blueskyAppPassword } : {}),
   };
 }
 
@@ -51,7 +50,7 @@ function parseSourceListUrls(value: string | undefined): string[] {
     value ??
     [
       "https://shuyojoho.metro.tokyo.lg.jp/generals/",
-      "https://shuyojoho.metro.tokyo.lg.jp/generals/cat"
+      "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
     ].join(",")
   )
     .split(/[\n,]/)
@@ -66,12 +65,12 @@ function parseSourceListUrls(value: string | undefined): string[] {
  */
 export function validateEnv(env: AppEnv): void {
   const publisherConfigured = Boolean(
-    env.blueskyEnabled && env.blueskyIdentifier && env.blueskyAppPassword
+    env.blueskyEnabled && env.blueskyIdentifier && env.blueskyAppPassword,
   );
 
   if (!publisherConfigured && !env.dryRun) {
     throw new Error(
-      "No supported publisher is configured. Set BLUESKY_IDENTIFIER and BLUESKY_APP_PASSWORD, or enable DRY_RUN=true."
+      "No supported publisher is configured. Set BLUESKY_IDENTIFIER and BLUESKY_APP_PASSWORD, or enable DRY_RUN=true.",
     );
   }
 }

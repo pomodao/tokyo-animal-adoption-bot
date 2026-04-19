@@ -23,17 +23,21 @@ function parseAnimalCard(chunk: string, sourceUrl: string, index: number): Anima
   const detailPath = matchOrThrow(chunk, /<a href="([^"]+)">/, `detail URL for card ${index}`);
   const imagePath = matchOptional(chunk, /<img src="([^"]+)"/);
   const id = singleLine(
-    matchOrThrow(chunk, /<h2>\s*管理番号[\s\u3000]*([^<]+?)\s*<span>/, `management number for card ${index}`)
+    matchOrThrow(
+      chunk,
+      /<h2>\s*管理番号[\s\u3000]*([^<]+?)\s*<span>/,
+      `management number for card ${index}`,
+    ),
   );
   const name = singleLine(
-    matchOrThrow(chunk, /<dt>\s*名前\s*<\/dt>\s*<dd>([\s\S]*?)<\/dd>/, `name for card ${index}`)
+    matchOrThrow(chunk, /<dt>\s*名前\s*<\/dt>\s*<dd>([\s\S]*?)<\/dd>/, `name for card ${index}`),
   );
   const branch = singleLine(
     matchOrThrow(
       chunk,
       /<dt>\s*管理支所\s*<\/dt>\s*<dd>([\s\S]*?)<\/dd>/,
-      `branch for card ${index}`
-    )
+      `branch for card ${index}`,
+    ),
   );
 
   return {
@@ -43,7 +47,7 @@ function parseAnimalCard(chunk: string, sourceUrl: string, index: number): Anima
     branch,
     detailUrl: toAbsoluteUrl(detailPath, sourceUrl),
     sourceUrl,
-    ...(imagePath ? { imageUrl: toAbsoluteUrl(imagePath, sourceUrl) } : {})
+    ...(imagePath ? { imageUrl: toAbsoluteUrl(imagePath, sourceUrl) } : {}),
   };
 }
 

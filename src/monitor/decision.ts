@@ -38,17 +38,13 @@ export function orderPublishCandidates(animals: Animal[]): Animal[] {
 /**
  * 最新取得結果でスナップショットを更新し、変更有無を返す。
  */
-export function updateSnapshotState(
-  state: SnapshotState,
-  animals: Animal[],
-  now: string
-): boolean {
+export function updateSnapshotState(state: SnapshotState, animals: Animal[], now: string): boolean {
   const previousById = new Map(state.data.animals.map((animal) => [animal.id, animal] as const));
   const nextAnimals = animals.map((animal) => {
     const previous = previousById.get(animal.id);
     return {
       ...animal,
-      firstSeenAt: previous?.firstSeenAt ?? now
+      firstSeenAt: previous?.firstSeenAt ?? now,
     };
   });
 

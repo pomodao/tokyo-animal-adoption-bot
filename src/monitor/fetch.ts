@@ -5,7 +5,7 @@ import { fetchBytes, fetchText } from "../shared/http.ts";
  */
 export async function fetchListPage(
   url: string,
-  options: { userAgent: string; timeoutMs: number }
+  options: { userAgent: string; timeoutMs: number },
 ): Promise<string> {
   return fetchText(url, options);
 }
@@ -15,7 +15,7 @@ export async function fetchListPage(
  */
 export async function fetchDetailPage(
   url: string,
-  options: { userAgent: string; timeoutMs: number }
+  options: { userAgent: string; timeoutMs: number },
 ): Promise<string> {
   return fetchText(url, options);
 }
@@ -25,7 +25,7 @@ export async function fetchDetailPage(
  */
 export async function fetchImage(
   url: string,
-  options: { userAgent: string; timeoutMs: number; maxBytes: number }
+  options: { userAgent: string; timeoutMs: number; maxBytes: number },
 ): Promise<{ bytes: Buffer; contentType: string }> {
   return fetchBytes(url, options);
 }

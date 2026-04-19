@@ -14,9 +14,9 @@ export async function fetchText(url: string, options: FetchOptions): Promise<str
   const response = await fetch(url, {
     headers: {
       "user-agent": options.userAgent,
-      accept: options.accept ?? "text/html,application/xhtml+xml"
+      accept: options.accept ?? "text/html,application/xhtml+xml",
     },
-    signal: AbortSignal.timeout(options.timeoutMs)
+    signal: AbortSignal.timeout(options.timeoutMs),
   });
 
   if (!response.ok) {
@@ -31,14 +31,14 @@ export async function fetchText(url: string, options: FetchOptions): Promise<str
  */
 export async function fetchBytes(
   url: string,
-  options: FetchOptions & { maxBytes: number }
+  options: FetchOptions & { maxBytes: number },
 ): Promise<{ bytes: Buffer; contentType: string }> {
   const response = await fetch(url, {
     headers: {
       "user-agent": options.userAgent,
-      accept: options.accept ?? "image/*"
+      accept: options.accept ?? "image/*",
     },
-    signal: AbortSignal.timeout(options.timeoutMs)
+    signal: AbortSignal.timeout(options.timeoutMs),
   });
 
   if (!response.ok) {
@@ -54,7 +54,7 @@ export async function fetchBytes(
 
   return {
     bytes,
-    contentType: response.headers.get("content-type") ?? guessContentType(url)
+    contentType: response.headers.get("content-type") ?? guessContentType(url),
   };
 }
 

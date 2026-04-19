@@ -12,7 +12,7 @@ export async function loadSnapshotState(): Promise<SnapshotState> {
   return readState(snapshotFilePath, {
     version: 1,
     updatedAt: initialTimestamp,
-    data: { animals: [] }
+    data: { animals: [] },
   });
 }
 
@@ -23,7 +23,7 @@ export async function loadPostedState(): Promise<PostedState> {
   return readState(postedFilePath, {
     version: 1,
     updatedAt: initialTimestamp,
-    data: { records: {} }
+    data: { records: {} },
   });
 }
 

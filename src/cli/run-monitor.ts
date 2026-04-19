@@ -4,7 +4,7 @@ import type { Animal } from "../model/animal.ts";
 import {
   orderPublishCandidates,
   shouldProcessAnimal,
-  updateSnapshotState
+  updateSnapshotState,
 } from "../monitor/decision.ts";
 import type { PlatformName } from "../model/publishing.ts";
 import { fetchDetailPage, fetchImage, fetchListPage } from "../monitor/fetch.ts";
@@ -33,7 +33,7 @@ async function main(): Promise<void> {
 
     log("info", "Starting monitor run", {
       sourceListUrls: env.sourceListUrls,
-      dryRun: env.dryRun
+      dryRun: env.dryRun,
     });
 
     let animals = await loadAnimalsFromSourceLists(env);
@@ -47,16 +47,16 @@ async function main(): Promise<void> {
           animalId: animal.id,
           previousIds,
           postedState,
-          enabledPlatforms
-        })
-      )
+          enabledPlatforms,
+        }),
+      ),
     );
     candidates = await enrichAnimalsWithDetailData(candidates, env);
 
     log("info", "Parsed list page", {
       animalCount: animals.length,
       candidateCount: candidates.length,
-      enabledPlatforms
+      enabledPlatforms,
     });
 
     let publishedCount = 0;
@@ -71,7 +71,7 @@ async function main(): Promise<void> {
       for (const animal of candidates) {
         log("info", "Dry run: would publish animal update", {
           animalId: animal.id,
-          detailUrl: animal.detailUrl
+          detailUrl: animal.detailUrl,
         });
       }
     }
@@ -81,7 +81,7 @@ async function main(): Promise<void> {
 
     await Promise.all([
       ...(snapshotChanged ? [saveSnapshotState(snapshotState)] : []),
-      ...(postedChanged ? [savePostedState(postedState)] : [])
+      ...(postedChanged ? [savePostedState(postedState)] : []),
     ]);
 
     log("info", "Monitor run completed", {
@@ -89,7 +89,7 @@ async function main(): Promise<void> {
       publishedCount,
       snapshotChanged,
       postedChanged,
-      dryRun: env.dryRun
+      dryRun: env.dryRun,
     });
   } catch (error) {
     const message = toErrorMessage(error);
@@ -109,7 +109,7 @@ async function loadAnimalsFromSourceLists(env: ReturnType<typeof loadEnv>): Prom
   for (const sourceListUrl of env.sourceListUrls) {
     const listHtml = await fetchListPage(sourceListUrl, {
       userAgent: env.userAgent,
-      timeoutMs: env.monitorTimeoutMs
+      timeoutMs: env.monitorTimeoutMs,
     });
     const parsed = parseListPage(listHtml, sourceListUrl);
 
@@ -117,7 +117,7 @@ async function loadAnimalsFromSourceLists(env: ReturnType<typeof loadEnv>): Prom
 
     log("info", "Parsed source list page", {
       sourceListUrl,
-      animalCount: parsed.length
+      animalCount: parsed.length,
     });
   }
 
@@ -137,8 +137,8 @@ async function createPublishers(env: ReturnType<typeof loadEnv>): Promise<Publis
         identifier: env.blueskyIdentifier,
         appPassword: env.blueskyAppPassword,
         userAgent: env.userAgent,
-        timeoutMs: env.monitorTimeoutMs
-      })
+        timeoutMs: env.monitorTimeoutMs,
+      }),
     );
   }
 
@@ -150,7 +150,7 @@ async function createPublishers(env: ReturnType<typeof loadEnv>): Promise<Publis
  */
 async function enrichAnimalsWithImages(
   animals: Animal[],
-  env: ReturnType<typeof loadEnv>
+  env: ReturnType<typeof loadEnv>,
 ): Promise<Animal[]> {
   const result: Animal[] = [];
 
@@ -163,18 +163,18 @@ async function enrichAnimalsWithImages(
     try {
       const detailHtml = await fetchDetailPage(animal.detailUrl, {
         userAgent: env.userAgent,
-        timeoutMs: env.monitorTimeoutMs
+        timeoutMs: env.monitorTimeoutMs,
       });
       const detailImageUrl = parseDetailPage(detailHtml, animal.detailUrl).imageUrl;
       result.push({
         ...animal,
-        ...(detailImageUrl ? { imageUrl: detailImageUrl } : {})
+        ...(detailImageUrl ? { imageUrl: detailImageUrl } : {}),
       });
     } catch (error) {
       log("warn", "Failed to enrich animal with detail-page image", {
         animalId: animal.id,
         detailUrl: animal.detailUrl,
-        error: toErrorMessage(error)
+        error: toErrorMessage(error),
       });
       result.push(animal);
     }
@@ -188,7 +188,7 @@ async function enrichAnimalsWithImages(
  */
 async function enrichAnimalsWithDetailData(
   animals: Animal[],
-  env: ReturnType<typeof loadEnv>
+  env: ReturnType<typeof loadEnv>,
 ): Promise<Animal[]> {
   const result: Animal[] = [];
 
@@ -196,18 +196,18 @@ async function enrichAnimalsWithDetailData(
     try {
       const detailHtml = await fetchDetailPage(animal.detailUrl, {
         userAgent: env.userAgent,
-        timeoutMs: env.monitorTimeoutMs
+        timeoutMs: env.monitorTimeoutMs,
       });
       const detail = parseDetailPage(detailHtml, animal.detailUrl);
       result.push({
         ...animal,
-        ...detail
+        ...detail,
       });
     } catch (error) {
       log("warn", "Failed to enrich animal with detail-page attributes", {
         animalId: animal.id,
         detailUrl: animal.detailUrl,
-        error: toErrorMessage(error)
+        error: toErrorMessage(error),
       });
       result.push(animal);
     }
@@ -236,14 +236,12 @@ async function publishAnimal(
   animal: Animal,
   publishers: Publisher[],
   postedState: PostedState,
-  env: ReturnType<typeof loadEnv>
+  env: ReturnType<typeof loadEnv>,
 ): Promise<number> {
-  const record =
-    postedState.data.records[animal.id] ??
-    {
-      detectedAt: new Date().toISOString(),
-      platforms: {}
-    };
+  const record = postedState.data.records[animal.id] ?? {
+    detectedAt: new Date().toISOString(),
+    platforms: {},
+  };
   let publishCount = 0;
 
   for (const publisher of publishers) {
@@ -255,7 +253,7 @@ async function publishAnimal(
     const image = await loadImageForPost(animal, env);
     const publishArgs = {
       animal,
-      text
+      text,
     } as const;
     const result = await publisher.publishAnimalUpdate({
       ...publishArgs,
@@ -264,10 +262,10 @@ async function publishAnimal(
             image: {
               bytes: image.bytes,
               contentType: image.contentType,
-              alt: `${animal.name} の掲載画像（管理番号 ${animal.id}）`
-            }
+              alt: `${animal.name} の掲載画像（管理番号 ${animal.id}）`,
+            },
           }
-        : {})
+        : {}),
     });
 
     if (!result.ok) {
@@ -278,7 +276,7 @@ async function publishAnimal(
       postedAt: new Date().toISOString(),
       remoteId: result.remoteId,
       ...(result.url ? { url: result.url } : {}),
-      ...(animal.imageUrl ? { imageUrl: animal.imageUrl } : {})
+      ...(animal.imageUrl ? { imageUrl: animal.imageUrl } : {}),
     };
 
     postedState.data.records[animal.id] = record;
@@ -287,7 +285,7 @@ async function publishAnimal(
     log("info", "Published animal update", {
       animalId: animal.id,
       platform: publisher.platform,
-      remoteId: result.remoteId
+      remoteId: result.remoteId,
     });
   }
 
@@ -299,7 +297,7 @@ async function publishAnimal(
  */
 async function loadImageForPost(
   animal: Animal,
-  env: ReturnType<typeof loadEnv>
+  env: ReturnType<typeof loadEnv>,
 ): Promise<{ bytes: Buffer; contentType: string } | undefined> {
   if (!animal.imageUrl) {
     return undefined;
@@ -309,13 +307,13 @@ async function loadImageForPost(
     return await fetchImage(animal.imageUrl, {
       userAgent: env.userAgent,
       timeoutMs: env.monitorTimeoutMs,
-      maxBytes: env.maxImageBytes
+      maxBytes: env.maxImageBytes,
     });
   } catch (error) {
     log("warn", "Failed to fetch image for post, falling back to text-only post", {
       animalId: animal.id,
       imageUrl: animal.imageUrl,
-      error: toErrorMessage(error)
+      error: toErrorMessage(error),
     });
     return undefined;
   }
@@ -323,5 +321,5 @@ async function loadImageForPost(
 
 void main().catch((error) => {
   process.exitCode = 1;
-  console.error(error instanceof Error ? error.stack ?? error.message : String(error));
+  console.error(error instanceof Error ? (error.stack ?? error.message) : String(error));
 });

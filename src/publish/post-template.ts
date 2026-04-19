@@ -7,7 +7,7 @@ export function defaultPostTemplate(animal: Animal): string {
     ["性別", animal.sex],
     ["毛色", animal.coatColor],
     ["体重", animal.weight],
-    ["推定年齢", animal.estimatedAge]
+    ["推定年齢", animal.estimatedAge],
   ].flatMap(([label, value]) => (value ? [`${label}: ${value}`] : []));
   const detailLine = detailFragments.join(" / ");
 
@@ -21,7 +21,7 @@ export function defaultPostTemplate(animal: Animal): string {
     ...(detailLine ? [detailLine] : []),
     `詳細: ${animal.detailUrl}`,
     "",
-    getHashtags(animal)
+    getHashtags(animal),
   ].join("\n");
 }
 

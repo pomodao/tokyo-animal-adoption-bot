@@ -47,6 +47,36 @@ test("buildLinkFacets trims trailing punctuation from URLs", () => {
   ]);
 });
 
+test("buildLinkFacets keeps the link range correct when a blank line follows the URL", () => {
+  const text = [
+    "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
+    "詳細: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
+    "",
+    "#保護猫"
+  ].join("\n");
+
+  assert.deepEqual(buildLinkFacets(text), [
+    {
+      index: {
+        byteStart: Buffer.byteLength(
+          "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。\n詳細: ",
+          "utf8"
+        ),
+        byteEnd: Buffer.byteLength(
+          "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。\n詳細: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
+          "utf8"
+        )
+      },
+      features: [
+        {
+          $type: "app.bsky.richtext.facet#link",
+          uri: "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673"
+        }
+      ]
+    }
+  ]);
+});
+
 test("buildTagFacets creates tag facets for Japanese and English hashtags", () => {
   const text = "#保護猫 #RescueCat";
 

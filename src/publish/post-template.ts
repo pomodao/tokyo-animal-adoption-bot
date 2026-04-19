@@ -14,12 +14,13 @@ export function defaultPostTemplate(animal: Animal): string {
   return [
     "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
     "",
-    animal.name,
+    `名前: ${animal.name}`,
     "",
     `管理番号: ${animal.id}`,
     `管理支所: ${animal.branch}`,
     ...(detailLine ? [detailLine] : []),
     `詳細: ${animal.detailUrl}`,
+    "",
     "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
   ].join("\n");
 }

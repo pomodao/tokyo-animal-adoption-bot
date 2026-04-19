@@ -23,12 +23,13 @@ test("renderPostText renders the default template with animal values", () => {
     [
       "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
       "",
-      "りゅう",
+      "名前: りゅう",
       "",
       "管理番号: 25ネ16",
       "管理支所: 本所",
       "種類: 雑種 / 性別: オス / 毛色: キジ白 / 体重: 4.2kg / 推定年齢: 3歳くらい",
       "詳細: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
+      "",
       "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
     ].join("\n")
   );
@@ -66,11 +67,12 @@ test("defaultPostTemplate omits the detail line when all optional attributes are
     [
       "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
       "",
-      "りゅう",
+      "名前: りゅう",
       "",
       "管理番号: 25ネ16",
       "管理支所: 本所",
       "詳細: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
+      "",
       "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
     ].join("\n")
   );

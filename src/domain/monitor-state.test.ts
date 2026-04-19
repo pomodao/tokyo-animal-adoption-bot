@@ -36,7 +36,7 @@ function createSnapshotState(animals: Animal[] = []): SnapshotState {
   };
 }
 
-test("shouldProcessAnimal returns true for newly detected animals", () => {
+test("新規検知した動物は処理対象になる", () => {
   const result = shouldProcessAnimal({
     animalId: "25ネ16",
     previousIds: new Set(),
@@ -47,7 +47,7 @@ test("shouldProcessAnimal returns true for newly detected animals", () => {
   assert.equal(result, true);
 });
 
-test("shouldProcessAnimal returns false when no platform is enabled and the animal is already known", () => {
+test("既知の動物で有効な投稿先がない場合は処理対象にならない", () => {
   const result = shouldProcessAnimal({
     animalId: "25ネ16",
     previousIds: new Set(["25ネ16"]),
@@ -58,7 +58,7 @@ test("shouldProcessAnimal returns false when no platform is enabled and the anim
   assert.equal(result, false);
 });
 
-test("shouldProcessAnimal returns true when a known animal has not been posted to an enabled platform", () => {
+test("既知の動物でも有効な投稿先に未投稿なら処理対象になる", () => {
   const postedState = createPostedState();
   postedState.data.records["25ネ16"] = {
     detectedAt: "2026-04-19T00:00:00.000Z",
@@ -75,7 +75,7 @@ test("shouldProcessAnimal returns true when a known animal has not been posted t
   assert.equal(result, true);
 });
 
-test("shouldProcessAnimal returns false when a known animal was already posted to all enabled platforms", () => {
+test("既知の動物が有効な投稿先すべてに投稿済みなら処理対象にならない", () => {
   const postedState = createPostedState();
   postedState.data.records["25ネ16"] = {
     detectedAt: "2026-04-19T00:00:00.000Z",
@@ -97,7 +97,7 @@ test("shouldProcessAnimal returns false when a known animal was already posted t
   assert.equal(result, false);
 });
 
-test("orderPublishCandidates returns animals in reverse DOM order", () => {
+test("投稿候補は DOM の逆順で並び替えられる", () => {
   const ordered = orderPublishCandidates([
     createAnimal({ id: "25ネ16", name: "りゅう" }),
     createAnimal({ id: "25T82", name: "チャナ", branch: "多摩支所" }),
@@ -110,7 +110,7 @@ test("orderPublishCandidates returns animals in reverse DOM order", () => {
   );
 });
 
-test("updateSnapshotState preserves firstSeenAt for known animals and adds it for new animals", () => {
+test("スナップショット更新時に既知の動物の firstSeenAt は保持され新規の動物には付与される", () => {
   const state = createSnapshotState([
     createAnimal({
       id: "25ネ16",
@@ -132,7 +132,7 @@ test("updateSnapshotState preserves firstSeenAt for known animals and adds it fo
   assert.equal(state.data.animals[1]?.firstSeenAt, "2026-04-19T07:00:00.000Z");
 });
 
-test("updateSnapshotState returns false when the snapshot is unchanged", () => {
+test("スナップショットが変わらない場合は false を返す", () => {
   const animals = [
     createAnimal({
       id: "25ネ16",

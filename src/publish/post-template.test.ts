@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { defaultPostTemplate, renderPostText } from "./post-template.ts";
 
-test("renderPostText renders the default template with animal values", () => {
+test("既定テンプレートで動物情報から投稿文を生成できる", () => {
   const text = renderPostText({
     id: "25ネ16",
     name: "りゅう",
@@ -36,7 +36,7 @@ test("renderPostText renders the default template with animal values", () => {
   );
 });
 
-test("renderPostText omits only missing fragments in a slash-delimited line", () => {
+test("スラッシュ区切りの詳細行では欠けている断片だけが省略される", () => {
   const text = defaultPostTemplate(
     {
       id: "25ネ16",
@@ -55,7 +55,7 @@ test("renderPostText omits only missing fragments in a slash-delimited line", ()
   assert.doesNotMatch(text, /毛色:/);
 });
 
-test("defaultPostTemplate omits the detail line when all optional attributes are absent", () => {
+test("任意属性がすべてない場合は詳細属性行を出さない", () => {
   const text = defaultPostTemplate({
     id: "25ネ16",
     name: "りゅう",
@@ -81,7 +81,7 @@ test("defaultPostTemplate omits the detail line when all optional attributes are
   );
 });
 
-test("defaultPostTemplate switches hashtags for dog posts", () => {
+test("犬投稿では犬向けハッシュタグへ切り替わる", () => {
   const text = defaultPostTemplate({
     id: "25犬1",
     name: "ポチ",

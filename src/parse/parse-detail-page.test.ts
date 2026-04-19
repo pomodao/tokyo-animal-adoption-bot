@@ -9,7 +9,7 @@ import { parseDetailPage, parseDetailPageImage } from "./parse-detail-page.ts";
 const fixtureDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), "__fixtures__");
 const detailUrl = "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673";
 
-test("parseDetailPage extracts the main image URL and animal attributes", async () => {
+test("詳細ページからメイン画像 URL と動物属性を抽出できる", async () => {
   const html = await readFile(path.join(fixtureDirectory, "detail-page.html"), "utf8");
 
   const detail = parseDetailPage(html, detailUrl);
@@ -24,13 +24,13 @@ test("parseDetailPage extracts the main image URL and animal attributes", async 
   });
 });
 
-test("parseDetailPageImage returns undefined when no image is present", () => {
+test("画像がない場合は詳細ページ画像の抽出結果が undefined になる", () => {
   const imageUrl = parseDetailPageImage("<div id=\"mainPhoto\"></div>", detailUrl);
 
   assert.equal(imageUrl, undefined);
 });
 
-test("parseDetailPage returns only available attributes", () => {
+test("詳細ページでは取得できた属性だけを返す", () => {
   const detail = parseDetailPage(
     [
       "<dl>",

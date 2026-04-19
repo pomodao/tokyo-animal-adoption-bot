@@ -9,7 +9,7 @@ import { parseListPage } from "./parse-list-page.ts";
 const fixtureDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), "__fixtures__");
 const sourceUrl = "https://shuyojoho.metro.tokyo.lg.jp/generals/cat";
 
-test("parseListPage extracts animals from the list page fixture", async () => {
+test("一覧ページ fixture から動物情報を抽出できる", async () => {
   const html = await readFile(path.join(fixtureDirectory, "list-page.html"), "utf8");
   const animals = parseListPage(html, sourceUrl);
 
@@ -34,7 +34,7 @@ test("parseListPage extracts animals from the list page fixture", async () => {
   });
 });
 
-test("parseListPage returns an empty array when no animal cards are present", () => {
+test("動物カードがない一覧ページでは空配列を返す", () => {
   const animals = parseListPage(
     [
       "<html><body>",
@@ -47,7 +47,7 @@ test("parseListPage returns an empty array when no animal cards are present", ()
   assert.deepEqual(animals, []);
 });
 
-test("parseListPage marks animals from the dog list as dog", () => {
+test("犬一覧ページの動物には dog カテゴリが付く", () => {
   const animals = parseListPage(
     `
       <div class="topMainBox">
@@ -69,7 +69,7 @@ test("parseListPage marks animals from the dog list as dog", () => {
   assert.equal(animals[0]?.category, "dog");
 });
 
-test("parseListPage throws when a required field is missing", () => {
+test("必須項目が欠けている一覧カードでは例外を投げる", () => {
   const brokenHtml = `
     <div class="topMainBox">
       <div class="imgWrapper">

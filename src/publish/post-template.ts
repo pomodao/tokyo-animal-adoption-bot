@@ -1,50 +1,32 @@
 import type { Animal } from "../domain/animal.ts";
 
-// 投稿文をテンプレート文字列として定義し、差し込み項目だけを置換できるようにする。
-export const defaultPostTemplate = [
-  "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
-  "",
-  "{{name}}",
-  "",
-  "管理番号: {{id}}",
-  "管理支所: {{branch}}",
-  "種類: {{breed}} / 性別: {{sex}} / 毛色: {{coatColor}} / 体重: {{weight}} / 推定年齢: {{estimatedAge}}",
-  "詳細: {{detailUrl}}"
-].join("\n");
+// 投稿文の既定テンプレートを組み立てる。
+export function defaultPostTemplate(animal: Animal): string {
+  const detailFragments = [
+    ["種類", animal.breed],
+    ["性別", animal.sex],
+    ["毛色", animal.coatColor],
+    ["体重", animal.weight],
+    ["推定年齢", animal.estimatedAge]
+  ].flatMap(([label, value]) => (value ? [`${label}: ${value}`] : []));
+  const detailLine = detailFragments.join(" / ");
+
+  return [
+    "東京都動物愛護相談センターの譲渡動物情報に新しい掲載がありました。",
+    "",
+    animal.name,
+    "",
+    `管理番号: ${animal.id}`,
+    `管理支所: ${animal.branch}`,
+    ...(detailLine ? [detailLine] : []),
+    `詳細: ${animal.detailUrl}`,
+    "#猫 #ねこ #保護猫 #猫のいる暮らし #里親募集 #cat #cats #RescueCat #CatsOfBluesky"
+  ].join("\n");
+}
 
 /**
- * 動物情報を投稿文テンプレートへ差し込んで本文を生成する。
+ * 動物情報から投稿本文を生成する。
  */
-export function renderPostText(animal: Animal, template = defaultPostTemplate): string {
-  const values: Record<string, string> = {
-    id: animal.id,
-    name: animal.name,
-    branch: animal.branch,
-    detailUrl: animal.detailUrl,
-    sourceUrl: animal.sourceUrl,
-    imageUrl: animal.imageUrl ?? "",
-    breed: animal.breed ?? "",
-    sex: animal.sex ?? "",
-    coatColor: animal.coatColor ?? "",
-    weight: animal.weight ?? "",
-    estimatedAge: animal.estimatedAge ?? "",
-    firstSeenAt: animal.firstSeenAt ?? ""
-  };
-
-  const rendered = template.replace(/\{\{([a-zA-Z0-9]+)\}\}/g, (placeholder, key: string) => {
-    return values[key] ?? placeholder;
-  });
-
-  return rendered
-    .split("\n")
-    .filter((line) => {
-      const trimmed = line.trim();
-
-      if (trimmed.length === 0) {
-        return false;
-      }
-
-      return trimmed.includes("{{") || !/[:：]\s*$/.test(trimmed);
-    })
-    .join("\n");
+export function renderPostText(animal: Animal): string {
+  return defaultPostTemplate(animal);
 }

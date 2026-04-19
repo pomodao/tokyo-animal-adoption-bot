@@ -11,6 +11,23 @@ type BlobResponse = {
   blob: unknown;
 };
 
+type Facet = {
+  index: {
+    byteStart: number;
+    byteEnd: number;
+  };
+  features: Array<
+    | {
+        $type: "app.bsky.richtext.facet#link";
+        uri: string;
+      }
+    | {
+        $type: "app.bsky.richtext.facet#tag";
+        tag: string;
+      }
+  >;
+};
+
 export type BlueskyPublisher = {
   platform: "bluesky";
   publishAnimalUpdate(args: {
@@ -40,6 +57,7 @@ export async function createBlueskyPublisher(config: {
     platform: "bluesky",
     async publishAnimalUpdate({ animal, text, image }) {
       let embed: Record<string, unknown> | undefined;
+      const facets = buildFacets(text);
 
       if (image) {
         try {
@@ -89,6 +107,7 @@ export async function createBlueskyPublisher(config: {
           record: {
             $type: "app.bsky.feed.post",
             text,
+            ...(facets.length > 0 ? { facets } : {}),
             createdAt: new Date().toISOString(),
             ...(embed ? { embed } : {})
           }
@@ -122,6 +141,93 @@ export async function createBlueskyPublisher(config: {
       };
     }
   };
+}
+
+/**
+ * 投稿本文中の URL とハッシュタグへ Bluesky の facet を付ける。
+ */
+export function buildFacets(text: string): Facet[] {
+  return [...buildLinkFacets(text), ...buildTagFacets(text)].sort(
+    (left, right) => left.index.byteStart - right.index.byteStart
+  );
+}
+
+/**
+ * 投稿本文中の URL へ Bluesky の link facet を付ける。
+ */
+export function buildLinkFacets(text: string): Facet[] {
+  const facets: Facet[] = [];
+
+  for (const matched of text.matchAll(/https?:\/\/[^\s]+/g)) {
+    const rawUrl = matched[0];
+    const start = matched.index;
+
+    if (typeof start !== "number") {
+      continue;
+    }
+
+    const url = rawUrl.replace(/[),.!?]+$/g, "");
+
+    if (url.length === 0) {
+      continue;
+    }
+
+    facets.push({
+      index: {
+        byteStart: Buffer.byteLength(text.slice(0, start), "utf8"),
+        byteEnd: Buffer.byteLength(text.slice(0, start + url.length), "utf8")
+      },
+      features: [
+        {
+          $type: "app.bsky.richtext.facet#link",
+          uri: url
+        }
+      ]
+    });
+  }
+
+  return facets;
+}
+
+/**
+ * 投稿本文中のハッシュタグへ Bluesky の tag facet を付ける。
+ */
+export function buildTagFacets(text: string): Facet[] {
+  const facets: Facet[] = [];
+
+  for (const matched of text.matchAll(/(?:^|\s)(#[^\d\s]\S*)(?=\s|$)/gu)) {
+    const rawTag = matched[1];
+    const matchedText = matched[0];
+    const start = matched.index;
+
+    if (typeof start !== "number" || !rawTag) {
+      continue;
+    }
+
+    const tagText = rawTag.replace(/\p{P}+$/gu, "");
+
+    if (tagText.length <= 1) {
+      continue;
+    }
+
+    const tagStart = start + matchedText.indexOf(rawTag);
+    const tag = tagText.slice(1);
+
+    facets.push({
+      index: {
+        byteStart: Buffer.byteLength(text.slice(0, tagStart), "utf8"),
+        byteEnd: Buffer.byteLength(text.slice(0, tagStart + tagText.length), "utf8")
+      },
+      features: [
+        {
+          $type: "app.bsky.richtext.facet#tag",
+          tag
+        }
+      ]
+    });
+  }
+
+  return facets;
 }
 
 /**

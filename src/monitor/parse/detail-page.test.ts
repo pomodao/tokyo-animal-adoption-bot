@@ -1,10 +1,10 @@
-import test from "node:test";
 // 詳細ページパーサーの正常系と画像なしケースを固定 fixture で検証する。
+import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseDetailPage, parseDetailPageImage } from "./parse-detail-page.ts";
+import { parseDetailPage, parseDetailPageImage } from "./detail-page.ts";
 
 const fixtureDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), "__fixtures__");
 const detailUrl = "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673";

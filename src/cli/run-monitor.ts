@@ -1,25 +1,23 @@
-import process from "node:process";
 // 監視のメインフローをまとめ、取得・差分判定・投稿・状態保存を直列で実行する。
-import type { Animal } from "../domain/animal.ts";
+import process from "node:process";
+import type { Animal } from "../model/animal.ts";
 import {
   orderPublishCandidates,
   shouldProcessAnimal,
   updateSnapshotState
-} from "../domain/monitor-state.ts";
-import type { PlatformName } from "../domain/publishing.ts";
-import { fetchDetailPage } from "../fetch/fetch-detail-page.ts";
-import { fetchImage } from "../fetch/fetch-image.ts";
-import { fetchListPage } from "../fetch/fetch-list-page.ts";
-import { parseDetailPage } from "../parse/parse-detail-page.ts";
-import { parseListPage } from "../parse/parse-list-page.ts";
+} from "../monitor/monitor-state.ts";
+import type { PlatformName } from "../model/publishing.ts";
+import { fetchDetailPage, fetchImage, fetchListPage } from "../monitor/fetch.ts";
+import { parseDetailPage } from "../monitor/parse/detail-page.ts";
+import { parseListPage } from "../monitor/parse/list-page.ts";
 import { createBlueskyPublisher } from "../publish/bluesky-publisher.ts";
 import { renderPostText } from "../publish/post-template.ts";
-import { loadEnv, validateEnv } from "../util/env.ts";
-import { toErrorMessage } from "../util/error.ts";
-import { log } from "../util/logging.ts";
-import { loadPostedState, loadSnapshotState } from "../persistence/load-state.ts";
-import { savePostedState, saveSnapshotState } from "../persistence/save-state.ts";
-import type { PostedState } from "../persistence/types.ts";
+import { loadEnv, validateEnv } from "../shared/env.ts";
+import { toErrorMessage } from "../shared/error.ts";
+import { log } from "../shared/logging.ts";
+import { loadPostedState, loadSnapshotState } from "../state/load-state.ts";
+import { savePostedState, saveSnapshotState } from "../state/save-state.ts";
+import type { PostedState } from "../state/state-file.ts";
 
 /**
  * 監視の 1 run を実行し、取得・差分判定・投稿・状態保存までをまとめて行う。

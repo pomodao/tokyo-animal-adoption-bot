@@ -1,6 +1,6 @@
+// HTTP 取得時のタイムアウトや User-Agent を共通化する。
 import { Buffer } from "node:buffer";
 
-// HTTP 取得時のタイムアウトや User-Agent を共通化する。
 type FetchOptions = {
   userAgent: string;
   timeoutMs: number;

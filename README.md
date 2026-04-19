@@ -90,7 +90,7 @@ DRY_RUN=true npm run monitor
 
 ## 環境変数
 
-この bot は [src/util/env.ts](/workspace/src/util/env.ts) で次の環境変数を参照します。
+この bot は [src/shared/env.ts](/workspace/src/shared/env.ts) で次の環境変数を参照します。
 
 ### 必須
 

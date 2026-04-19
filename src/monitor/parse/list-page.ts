@@ -1,7 +1,7 @@
-import type { Animal } from "../domain/animal.ts";
 // 一覧ページのカード群を動物スナップショットへ変換する。
-import { toAbsoluteUrl } from "../util/http.ts";
-import { singleLine } from "../util/text.ts";
+import type { Animal } from "../../model/animal.ts";
+import { toAbsoluteUrl } from "../../shared/http.ts";
+import { singleLine } from "../../shared/text.ts";
 
 /**
  * 一覧ページ HTML 全体から動物カードを配列として抽出する。

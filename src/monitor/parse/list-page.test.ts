@@ -1,10 +1,10 @@
-import test from "node:test";
 // 一覧ページパーサーの抽出結果と壊れた入力時の失敗を fixture で検証する。
+import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseListPage } from "./parse-list-page.ts";
+import { parseListPage } from "./list-page.ts";
 
 const fixtureDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), "__fixtures__");
 const sourceUrl = "https://shuyojoho.metro.tokyo.lg.jp/generals/cat";

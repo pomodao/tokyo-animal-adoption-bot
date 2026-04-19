@@ -1,6 +1,6 @@
-import type { Animal } from "./animal.ts";
-import type { PlatformName } from "./publishing.ts";
-import type { PostedState, SnapshotState } from "../persistence/types.ts";
+import type { Animal } from "../model/animal.ts";
+import type { PlatformName } from "../model/publishing.ts";
+import type { PostedState, SnapshotState } from "../state/state-file.ts";
 
 /**
  * 今回の run でその動物を処理対象にする必要があるかを判定する。

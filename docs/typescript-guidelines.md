@@ -51,37 +51,41 @@ src/
   cli/
     run-monitor.ts
     run-activity-check.ts
-  domain/
+  model/
     animal.ts
-    snapshot.ts
-  fetch/
-    fetch-list-page.ts
-    fetch-detail-page.ts
-    fetch-image.ts
-  parse/
-    parse-list-page.ts
-    parse-detail-page.ts
+    publishing.ts
+  monitor/
+    fetch.ts
+    monitor-state.ts
+    parse/
+      detail-page.ts
+      list-page.ts
+      __fixtures__/
   publish/
     bluesky-publisher.ts
     x-publisher.ts
   state/
+    files.ts
     load-state.ts
     save-state.ts
-  util/
+    state-file.ts
+  shared/
     env.ts
     error.ts
     logging.ts
+    http.ts
+    text.ts
 ```
 
 狙い:
 
-- 取得
-- パース
-- 差分判定
-- 状態管理
+- 監視
 - 投稿
+- 状態管理
+- 共有モデル
+- 共通処理
 
-を分離し、I/O とドメインロジックを混ぜすぎない。
+を分離し、ユースケースごとの流れと共通部品を混ぜすぎない。
 
 ## tsconfig 方針
 

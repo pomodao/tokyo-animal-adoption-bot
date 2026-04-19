@@ -1,6 +1,6 @@
-import type { Animal } from "../domain/animal.ts";
-import { toAbsoluteUrl } from "../util/http.ts";
-import { singleLine } from "../util/text.ts";
+import type { Animal } from "../../model/animal.ts";
+import { toAbsoluteUrl } from "../../shared/http.ts";
+import { singleLine } from "../../shared/text.ts";
 
 type AnimalDetail = Pick<
   Animal,

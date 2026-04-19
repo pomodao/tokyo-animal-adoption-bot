@@ -1,6 +1,6 @@
-import type { Animal } from "../domain/animal.ts";
 // 永続化する state ファイルの構造を型として定義する。
-import type { PlatformName } from "../domain/publishing.ts";
+import type { Animal } from "../model/animal.ts";
+import type { PlatformName } from "../model/publishing.ts";
 
 export type StateFile<T> = {
   version: 1;
@@ -8,23 +8,23 @@ export type StateFile<T> = {
   data: T;
 };
 
-export type SnapshotData = {
+type SnapshotData = {
   animals: Animal[];
 };
 
-export type PostedPlatformRecord = {
+type PostedPlatformRecord = {
   postedAt: string;
   remoteId: string;
   url?: string;
   imageUrl?: string;
 };
 
-export type PostedAnimalRecord = {
+type PostedAnimalRecord = {
   detectedAt: string;
   platforms: Partial<Record<PlatformName, PostedPlatformRecord>>;
 };
 
-export type PostedData = {
+type PostedData = {
   records: Record<string, PostedAnimalRecord>;
 };
 

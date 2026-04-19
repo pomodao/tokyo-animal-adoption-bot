@@ -9,7 +9,7 @@
   "scripts": {
     "typecheck": "tsc --pretty false",
     "monitor": "node src/cli/run-monitor.ts",
-    "test": "node --test src/**/*.test.ts"
+    "test": "find src -name \"*.test.ts\" -print0 | xargs -0 node --test"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

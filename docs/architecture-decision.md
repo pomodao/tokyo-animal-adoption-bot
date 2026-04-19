@@ -2,10 +2,11 @@
 
 ## 目的
 
-東京都動物愛護相談センターの譲渡猫ページを定期的に確認し、更新があれば SNS に投稿する bot を、できるだけ低コストで構築する。
+東京都動物愛護相談センターの譲渡動物ページを定期的に確認し、更新があれば SNS に投稿する bot を、できるだけ低コストで構築する。
 
 対象ページ:
 
+- https://shuyojoho.metro.tokyo.lg.jp/generals/
 - https://shuyojoho.metro.tokyo.lg.jp/generals/cat
 
 ## 要件

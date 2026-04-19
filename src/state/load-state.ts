@@ -1,6 +1,6 @@
-import { readFile } from "node:fs/promises";
 // state ファイルを読み込み、未作成時は安全な初期値へフォールバックする。
-import type { PostedState, SnapshotState, StateFile } from "./types.ts";
+import { readFile } from "node:fs/promises";
+import type { PostedState, SnapshotState, StateFile } from "./state-file.ts";
 import { postedFilePath, snapshotFilePath } from "./files.ts";
 
 const initialTimestamp = "1970-01-01T00:00:00.000Z";

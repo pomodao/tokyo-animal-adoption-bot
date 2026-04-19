@@ -1,7 +1,7 @@
-import { mkdir, writeFile } from "node:fs/promises";
 // state ファイル保存時の整形とキー順の安定化をここに集約する。
+import { mkdir, writeFile } from "node:fs/promises";
 import { postedFilePath, snapshotFilePath, stateDirectory } from "./files.ts";
-import type { PostedState, SnapshotState, StateFile } from "./types.ts";
+import type { PostedState, SnapshotState, StateFile } from "./state-file.ts";
 
 /**
  * 動物スナップショット state を保存する。

@@ -1,6 +1,6 @@
-import type { Animal } from "../domain/animal.ts";
 // Bluesky への認証、画像アップロード、投稿作成をまとめたアダプター。
-import type { PublishResult } from "../domain/publishing.ts";
+import type { Animal } from "../model/animal.ts";
+import type { PublishResult } from "../model/publishing.ts";
 
 type Session = {
   did: string;

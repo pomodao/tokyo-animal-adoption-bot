@@ -1,6 +1,6 @@
+// 環境変数の読み込みと必須設定の検証を一箇所に閉じ込める。
 import process from "node:process";
 
-// 環境変数の読み込みと必須設定の検証を一箇所に閉じ込める。
 export type AppEnv = {
   sourceListUrls: string[];
   monitorTimeoutMs: number;

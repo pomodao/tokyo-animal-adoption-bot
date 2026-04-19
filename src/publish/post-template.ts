@@ -1,6 +1,6 @@
-import type { Animal } from "../domain/animal.ts";
-
 // 投稿文の既定テンプレートを組み立てる。
+import type { Animal } from "../model/animal.ts";
+
 export function defaultPostTemplate(animal: Animal): string {
   const detailFragments = [
     ["種類", animal.breed],

@@ -1,8 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { orderPublishCandidates, shouldProcessAnimal, updateSnapshotState } from "./monitor-state.ts";
-import type { Animal } from "./animal.ts";
-import type { PostedState, SnapshotState } from "../persistence/types.ts";
+import type { Animal } from "../model/animal.ts";
+import type { PostedState, SnapshotState } from "../state/state-file.ts";
 
 function createAnimal(overrides: Partial<Animal> = {}): Animal {
   return {

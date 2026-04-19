@@ -5,7 +5,7 @@ import {
   orderPublishCandidates,
   shouldProcessAnimal,
   updateSnapshotState
-} from "../monitor/monitor-state.ts";
+} from "../monitor/decision.ts";
 import type { PlatformName } from "../model/publishing.ts";
 import { fetchDetailPage, fetchImage, fetchListPage } from "../monitor/fetch.ts";
 import { parseDetailPage } from "../monitor/parse/detail-page.ts";
@@ -15,9 +15,9 @@ import { renderPostText } from "../publish/post-template.ts";
 import { loadEnv, validateEnv } from "../shared/env.ts";
 import { toErrorMessage } from "../shared/error.ts";
 import { log } from "../shared/logging.ts";
-import { loadPostedState, loadSnapshotState } from "../state/load-state.ts";
-import { savePostedState, saveSnapshotState } from "../state/save-state.ts";
-import type { PostedState } from "../state/state-file.ts";
+import { loadPostedState, loadSnapshotState } from "../persistence/load-state.ts";
+import { savePostedState, saveSnapshotState } from "../persistence/save-state.ts";
+import type { PostedState } from "../persistence/state-file.ts";
 
 /**
  * 監視の 1 run を実行し、取得・差分判定・投稿・状態保存までをまとめて行う。

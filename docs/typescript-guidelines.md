@@ -55,8 +55,8 @@ src/
     animal.ts
     publishing.ts
   monitor/
+    decision.ts
     fetch.ts
-    monitor-state.ts
     parse/
       detail-page.ts
       list-page.ts
@@ -64,7 +64,7 @@ src/
   publish/
     bluesky-publisher.ts
     x-publisher.ts
-  state/
+  persistence/
     files.ts
     load-state.ts
     save-state.ts
@@ -79,9 +79,10 @@ src/
 
 狙い:
 
-- 監視
+- 取得・パース
+- 判定ロジック
 - 投稿
-- 状態管理
+- 永続化
 - 共有モデル
 - 共通処理
 
@@ -89,47 +90,15 @@ src/
 
 ## tsconfig 方針
 
-最低限、次を前提とする。
+`tsconfig.json` を正とし、このドキュメントでは設計上重要な方針だけを扱う。
 
 - `strict: true`
-- `exactOptionalPropertyTypes: true`
-- `noUncheckedIndexedAccess: true`
-- `noImplicitOverride: true`
-- `noFallthroughCasesInSwitch: true`
+- `exactOptionalPropertyTypes: true` と `noUncheckedIndexedAccess: true` を有効にし、外部入力や state 読み書きの曖昧さを減らす
 - `module: "nodenext"`
-- `target: "esnext"`
 - `verbatimModuleSyntax: true`
-- `rewriteRelativeImportExtensions: true`
-- `erasableSyntaxOnly: true`
+- `rewriteRelativeImportExtensions: true` と `allowImportingTsExtensions: true` を前提に、相対 import では `.ts` 拡張子を明示する
+- `erasableSyntaxOnly: true` を前提に、Node.js の type stripping で扱えない TypeScript 構文は持ち込まない
 - `noEmit: true`
-
-### `strict`
-
-`strict` は広い型検査を有効化し、将来の TypeScript 更新で追加される厳格化も取り込みやすくする。
-
-### `exactOptionalPropertyTypes`
-
-省略されたプロパティと、`undefined` が明示的に入ったプロパティを区別したい。この bot では、画像 URL の有無や詳細ページ情報の有無を正確に表現したいため有効にする。
-
-### `noUncheckedIndexedAccess`
-
-配列や辞書アクセスの戻り値に `undefined` を含めることで、パース処理や状態ファイル読み込み時の取りこぼしを減らす。
-
-### `useUnknownInCatchVariables`
-
-`strict` 配下で有効になる。`catch` 内の値を `unknown` として扱い、投げられた値の型を決め打ちしない。
-
-### `module: "nodenext"` と `verbatimModuleSyntax`
-
-Node.js ネイティブ実行に合わせて、モジュール解決と import/export の振る舞いを Node.js に寄せる。
-
-### `rewriteRelativeImportExtensions`
-
-相対 import の拡張子運用を明示しやすくする。Node.js で `.ts` を直接実行する前提でも、将来 `tsc` や周辺ツールと齟齬を出しにくくする。
-
-### `erasableSyntaxOnly`
-
-Node.js の type stripping で安全に実行できる構文へ寄せる。変換が必要な TypeScript 構文の持ち込みを避けるために有効にする。
 
 ## モジュール方針
 

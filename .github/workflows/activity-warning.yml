@@ -1,0 +1,95 @@
+name: Workflow Activity Warning
+
+on:
+  schedule:
+    - cron: "15 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  warn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create inactivity warning issue if needed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const warningDays = 45;
+
+            const repoInfo = await github.rest.repos.get({ owner, repo });
+            const defaultBranch = repoInfo.data.default_branch;
+            const branch = await github.rest.repos.getBranch({ owner, repo, branch: defaultBranch });
+            const commitDate = branch.data.commit.commit.committer?.date;
+
+            if (!commitDate) {
+              core.setFailed("Could not determine last commit date for default branch.");
+              return;
+            }
+
+            const daysElapsed = Math.floor(
+              (Date.now() - new Date(commitDate).getTime()) / (1000 * 60 * 60 * 24)
+            );
+
+            core.info(`Default branch last commit date: ${commitDate}`);
+            core.info(`Days elapsed: ${daysElapsed}`);
+
+            if (daysElapsed < warningDays) {
+              core.info("Warning threshold not reached.");
+              return;
+            }
+
+            const labelName = "workflow-activity-warning";
+
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: labelName });
+            } catch (error) {
+              await github.rest.issues.createLabel({
+                owner,
+                repo,
+                name: labelName,
+                color: "d73a4a",
+                description: "GitHub Actions scheduled workflow inactivity warning"
+              });
+            }
+
+            const openIssues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: "open",
+              labels: labelName,
+              per_page: 100
+            });
+
+            if (openIssues.data.length > 0) {
+              core.info("An open warning issue already exists.");
+              return;
+            }
+
+            const title = `Scheduled workflow inactivity warning (${daysElapsed} days since last commit)`;
+            const body = [
+              "scheduled workflow の無効化が近づいています。",
+              "",
+              `- default branch: \`${defaultBranch}\``,
+              `- 最終コミット日時: ${commitDate}`,
+              `- 経過日数: ${daysElapsed} 日`,
+              "",
+              "60 日間 repository activity がないと scheduled workflow が無効化される可能性があります。",
+              "必要なら次を実施してください。",
+              "",
+              "1. 状況を確認する",
+              "2. 必要なら workflow を GitHub UI から再有効化する",
+              "3. 運用上必要なら commit を追加して activity を発生させる"
+            ].join("\n");
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body,
+              labels: [labelName]
+            });

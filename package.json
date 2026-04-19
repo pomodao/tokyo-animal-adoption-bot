@@ -1,0 +1,18 @@
+{
+  "name": "tokyo-animal-adoption-bot",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --pretty false",
+    "monitor": "node src/cli/run-monitor.ts",
+    "test": "node --test src/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

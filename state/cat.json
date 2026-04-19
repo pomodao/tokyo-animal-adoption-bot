@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-19T07:29:46.835Z",
+  "data": {
+    "animals": [
+      {
+        "id": "25ネ16",
+        "name": "りゅう",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8673",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69bb6dab255ca.jpg",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "25-66",
+        "name": "オセロ",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8642",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69926b5bd1fac.png",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "25T82",
+        "name": "チャナ",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "25-75",
+        "name": "くろみつ",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8669",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b9157a37723.jpg",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "25ネ7",
+        "name": "エルク",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8514",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/68dcb52b11c1e.png",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "24ネ90",
+        "name": "みたらし",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8350",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6969cd01434e7.jpg",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "24ネ57",
+        "name": "シン",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8203",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69805d14382e8.png",
+        "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      }
+    ]
+  }
+}

@@ -2,6 +2,77 @@
   "version": 1,
   "updatedAt": "1970-01-01T00:00:00.000Z",
   "data": {
-    "records": {}
+    "records": {
+      "24ネ57": {
+        "detectedAt": "2026-04-19T09:58:05.571Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:08.812Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtow3kbnj2b",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69805d14382e8.png"
+          }
+        }
+      },
+      "24ネ90": {
+        "detectedAt": "2026-04-19T09:58:08.813Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:10.638Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtow5bwyj2o",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6969cd01434e7.jpg"
+          }
+        }
+      },
+      "25-66": {
+        "detectedAt": "2026-04-19T09:58:16.367Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:19.511Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtowfqla52s",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69926b5bd1fac.png"
+          }
+        }
+      },
+      "25-75": {
+        "detectedAt": "2026-04-19T09:58:13.103Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:14.785Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtowbbsxw2q",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b9157a37723.jpg"
+          }
+        }
+      },
+      "25T82": {
+        "detectedAt": "2026-04-19T09:58:14.785Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:16.367Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtowcsmis2m",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg"
+          }
+        }
+      },
+      "25ネ16": {
+        "detectedAt": "2026-04-19T09:58:19.512Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:20.969Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtowh6a4k2w",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69bb6dab255ca.jpg"
+          }
+        }
+      },
+      "25ネ7": {
+        "detectedAt": "2026-04-19T09:58:10.638Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-04-19T09:58:13.103Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mjtow7jttx2f",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/68dcb52b11c1e.png"
+          }
+        }
+      }
+    }
   }
 }

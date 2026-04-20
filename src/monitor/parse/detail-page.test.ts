@@ -16,11 +16,13 @@ test("詳細ページからメイン画像 URL と動物属性を抽出できる
 
   assert.deepEqual(detail, {
     imageUrl: "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69bb6dab255ca.jpg",
-    breed: "雑種",
-    sex: "オス",
-    coatColor: "キジ白",
-    weight: "4.2kg",
-    estimatedAge: "3歳くらい",
+    details: {
+      breed: "雑種",
+      sex: "オス",
+      coatColor: "キジ白",
+      weight: "4.2kg",
+      estimatedAge: "3歳くらい",
+    },
   });
 });
 
@@ -37,7 +39,9 @@ test("詳細ページでは取得できた属性だけを返す", () => {
   );
 
   assert.deepEqual(detail, {
-    breed: "日本猫",
-    sex: "メス",
+    details: {
+      breed: "日本猫",
+      sex: "メス",
+    },
   });
 });

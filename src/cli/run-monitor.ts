@@ -198,10 +198,11 @@ async function enrichAnimalsWithDetailData(
         userAgent: env.userAgent,
         timeoutMs: env.monitorTimeoutMs,
       });
-      const detail = parseDetailPage(detailHtml, animal.detailUrl);
+      const detailData = parseDetailPage(detailHtml, animal.detailUrl);
       result.push({
         ...animal,
-        ...detail,
+        ...(detailData.imageUrl ? { imageUrl: detailData.imageUrl } : {}),
+        ...(detailData.details ? { details: detailData.details } : {}),
       });
     } catch (error) {
       log("warn", "Failed to enrich animal with detail-page attributes", {

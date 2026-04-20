@@ -1,30 +1,33 @@
-import type { Animal } from "../../model/animal.ts";
+import type { AnimalDetails } from "../../model/animal.ts";
 import { toAbsoluteUrl } from "../../shared/http.ts";
 import { singleLine } from "../../shared/text.ts";
 
-type AnimalDetail = Pick<
-  Animal,
-  "imageUrl" | "breed" | "sex" | "coatColor" | "weight" | "estimatedAge"
->;
+type AnimalDetailPageData = {
+  imageUrl?: string;
+  details?: AnimalDetails;
+};
 
 /**
  * 詳細ページ HTML から画像 URL と投稿補足に使う属性を取り出す。
  */
-export function parseDetailPage(html: string, detailUrl: string): AnimalDetail {
+export function parseDetailPage(html: string, detailUrl: string): AnimalDetailPageData {
   const imagePath = /<p id="mainPhoto">[\s\S]*?<img[^>]+src="([^"]+)"/.exec(html)?.[1];
   const breed = extractDetailText(html, "種類");
   const sex = extractDetailText(html, "性別");
   const coatColor = extractDetailText(html, "毛色");
   const weight = extractDetailText(html, "体重");
   const estimatedAge = extractDetailText(html, "推定年齢");
-
-  return {
-    ...(imagePath ? { imageUrl: toAbsoluteUrl(imagePath, detailUrl) } : {}),
+  const details = {
     ...(breed ? { breed } : {}),
     ...(sex ? { sex } : {}),
     ...(coatColor ? { coatColor } : {}),
     ...(weight ? { weight } : {}),
     ...(estimatedAge ? { estimatedAge } : {}),
+  };
+
+  return {
+    ...(imagePath ? { imageUrl: toAbsoluteUrl(imagePath, detailUrl) } : {}),
+    ...(Object.keys(details).length > 0 ? { details } : {}),
   };
 }
 

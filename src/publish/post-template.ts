@@ -3,11 +3,11 @@ import type { Animal } from "../model/animal.ts";
 
 export function defaultPostTemplate(animal: Animal): string {
   const detailFragments = [
-    ["種類", animal.breed],
-    ["性別", animal.sex],
-    ["毛色", animal.coatColor],
-    ["体重", animal.weight],
-    ["推定年齢", animal.estimatedAge],
+    ["種類", animal.details?.breed],
+    ["性別", animal.details?.sex],
+    ["毛色", animal.details?.coatColor],
+    ["体重", animal.details?.weight],
+    ["推定年齢", animal.details?.estimatedAge],
   ].flatMap(([label, value]) => (value ? [`${label}: ${value}`] : []));
   const detailLine = detailFragments.join(" / ");
 

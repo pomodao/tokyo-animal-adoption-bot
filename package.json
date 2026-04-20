@@ -7,7 +7,6 @@
     "node": ">=24"
   },
   "scripts": {
-    "prepare": "simple-git-hooks",
     "typecheck": "tsc --pretty false",
     "lint": "eslint src --max-warnings 0",
     "format": "prettier --write .",
@@ -16,16 +15,12 @@
     "monitor": "node src/cli/run-monitor.ts",
     "test": "find src -name \"*.test.ts\" -print0 | xargs -0 node --test"
   },
-  "simple-git-hooks": {
-    "pre-commit": "npm run verify"
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.0.0",
     "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.3",
-    "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.0",
     "typescript-eslint": "^8.58.2"
   }

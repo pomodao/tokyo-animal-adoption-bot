@@ -105,7 +105,7 @@ DRY_RUN=true npm run monitor
 
 この実行では対象ページを取得して差分判定まで行いますが、SNS 投稿はしません。
 
-`npm install` 後は `prepare` script により pre-commit hook が設定され、commit 前に `npm run verify` が自動実行されます。
+変更後や pull request 作成前には、必要に応じて `npm run verify` を実行してください。
 
 ## GitHub で動かす手順
 

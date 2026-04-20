@@ -183,6 +183,7 @@ GitHub Actions で通常運用する場合は、少なくとも次を `Settings`
 - `npm run lint`
 - `npm run typecheck`
 - `npm test`
+- `actionlint`
 
 ### 無活動警告 workflow
 

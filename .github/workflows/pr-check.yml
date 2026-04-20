@@ -45,5 +45,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install actionlint
+        id: install_actionlint
+        shell: bash
+        run: bash <(curl --show-error --silent --fail https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash)
+
       - name: Run actionlint
-        uses: rhysd/actionlint@v1
+        shell: bash
+        run: ${{ steps.install_actionlint.outputs.executable }}

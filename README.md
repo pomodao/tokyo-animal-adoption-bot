@@ -67,10 +67,34 @@ npm install
 npm run typecheck
 ```
 
+Lint:
+
+```sh
+npm run lint
+```
+
+整形:
+
+```sh
+npm run format
+```
+
+整形チェック:
+
+```sh
+npm run format:check
+```
+
 テスト:
 
 ```sh
 npm test
+```
+
+まとめて検証:
+
+```sh
+npm run verify
 ```
 
 投稿せずに dry-run で確認:
@@ -80,6 +104,8 @@ DRY_RUN=true npm run monitor
 ```
 
 この実行では対象ページを取得して差分判定まで行いますが、SNS 投稿はしません。
+
+`npm install` 後は `prepare` script により pre-commit hook が設定され、commit 前に `npm run verify` が自動実行されます。
 
 ## GitHub で動かす手順
 
@@ -146,6 +172,17 @@ GitHub Actions で通常運用する場合は、少なくとも次を `Settings`
 - `npm run typecheck`
 - `npm run monitor`
 - `state/` に変更があったときだけ commit / push
+
+### PR check workflow
+
+`.github/workflows/pr-check.yml`
+
+- pull request ごとに実行
+- `npm ci`
+- `npm run format:check`
+- `npm run lint`
+- `npm run typecheck`
+- `npm test`
 
 ### 無活動警告 workflow
 

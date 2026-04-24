@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-19T07:29:46.835Z",
+  "updatedAt": "2026-04-24T07:48:27.221Z",
   "data": {
     "animals": [
       {
@@ -31,16 +31,6 @@
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg",
-        "firstSeenAt": "2026-04-19T07:29:46.835Z"
-      },
-      {
-        "id": "25-75",
-        "name": "くろみつ",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8669",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b9157a37723.jpg",
         "firstSeenAt": "2026-04-19T07:29:46.835Z"
       },
       {

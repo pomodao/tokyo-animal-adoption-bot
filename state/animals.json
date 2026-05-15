@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-15T02:07:35.203Z",
+  "updatedAt": "2026-05-15T06:23:23.803Z",
   "data": {
     "animals": [
       {
@@ -11,16 +11,6 @@
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8642",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69926b5bd1fac.png",
-        "firstSeenAt": "2026-04-19T07:29:46.835Z"
-      },
-      {
-        "id": "25T82",
-        "name": "チャナ",
-        "category": "cat",
-        "branch": "多摩支所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8667",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69b26c84a2c30.jpg",
         "firstSeenAt": "2026-04-19T07:29:46.835Z"
       },
       {

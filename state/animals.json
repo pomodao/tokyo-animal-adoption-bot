@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-27T06:54:07.955Z",
+  "updatedAt": "2026-05-28T06:42:53.241Z",
   "data": {
     "animals": [
       {
@@ -22,6 +22,36 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69926b5bd1fac.png",
         "firstSeenAt": "2026-04-19T07:29:46.835Z"
+      },
+      {
+        "id": "25T73",
+        "name": "ハザクラ",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8711",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a168c186a4f4.JPG",
+        "firstSeenAt": "2026-05-28T06:42:53.241Z"
+      },
+      {
+        "id": "25T84",
+        "name": "ダル",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8712",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a168d1299b35.JPG",
+        "firstSeenAt": "2026-05-28T06:42:53.241Z"
+      },
+      {
+        "id": "25T93",
+        "name": "ウコンザクラ",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8713",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a168ed7df002.JPG",
+        "firstSeenAt": "2026-05-28T06:42:53.241Z"
       },
       {
         "id": "25ネ7",

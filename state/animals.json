@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-28T06:42:53.241Z",
+  "updatedAt": "2026-06-01T08:25:18.147Z",
   "data": {
     "animals": [
       {
@@ -61,16 +61,6 @@
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8514",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a0e6c47112da.JPG",
-        "firstSeenAt": "2026-04-19T07:29:46.835Z"
-      },
-      {
-        "id": "24ネ90",
-        "name": "みたらし",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8350",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6969cd01434e7.jpg",
         "firstSeenAt": "2026-04-19T07:29:46.835Z"
       },
       {

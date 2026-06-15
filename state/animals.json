@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-15T02:42:45.212Z",
+  "updatedAt": "2026-06-15T08:48:16.331Z",
   "data": {
     "animals": [
       {
@@ -11,16 +11,6 @@
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8692",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a28e44774ced.jpeg",
-        "firstSeenAt": "2026-06-10T12:13:29.511Z"
-      },
-      {
-        "id": "26ネ5",
-        "name": "ちー",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8697",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a02c3211d8b2.JPG",
         "firstSeenAt": "2026-06-10T12:13:29.511Z"
       },
       {

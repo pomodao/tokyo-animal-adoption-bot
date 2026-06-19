@@ -1,18 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-15T08:48:16.331Z",
+  "updatedAt": "2026-06-19T08:24:39.861Z",
   "data": {
     "animals": [
-      {
-        "id": "26F5",
-        "name": "たにた",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8692",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a28e44774ced.jpeg",
-        "firstSeenAt": "2026-06-10T12:13:29.511Z"
-      },
       {
         "id": "25-66",
         "name": "オセロ",

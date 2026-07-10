@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-19T08:24:39.861Z",
+  "updatedAt": "2026-07-10T06:32:11.009Z",
   "data": {
     "animals": [
       {
@@ -42,16 +42,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a1e32bb5df29.jpg",
         "firstSeenAt": "2026-05-28T06:42:53.241Z"
-      },
-      {
-        "id": "25ネ7",
-        "name": "エルク",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8514",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a0e6c47112da.JPG",
-        "firstSeenAt": "2026-04-19T07:29:46.835Z"
       },
       {
         "id": "24ネ57",

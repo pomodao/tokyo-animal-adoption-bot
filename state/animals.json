@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-17T05:32:01.198Z",
+  "updatedAt": "2026-07-22T01:30:09.364Z",
   "data": {
     "animals": [
       {
@@ -52,16 +52,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a1e32bb5df29.jpg",
         "firstSeenAt": "2026-05-28T06:42:53.241Z"
-      },
-      {
-        "id": "24ネ57",
-        "name": "シン",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8203",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/69805d14382e8.png",
-        "firstSeenAt": "2026-04-19T07:29:46.835Z"
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-22T01:30:09.364Z",
+  "updatedAt": "2026-07-27T06:16:39.672Z",
   "data": {
     "animals": [
       {
@@ -12,6 +12,16 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a54937c41985.JPG",
         "firstSeenAt": "2026-07-15T01:21:06.737Z"
+      },
+      {
+        "id": "26ネ11",
+        "name": "つらら",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8749",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a66f01165066.JPG",
+        "firstSeenAt": "2026-07-27T06:16:39.672Z"
       },
       {
         "id": "25-66",

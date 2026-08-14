@@ -53,6 +53,26 @@
           }
         }
       },
+      "25T77": {
+        "detectedAt": "2026-08-14T04:40:59.404Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-08-14T04:41:00.771Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mszdqptmbw2w",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a7d1ed36823e.JPG"
+          }
+        }
+      },
+      "25T81": {
+        "detectedAt": "2026-08-14T04:40:57.594Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-08-14T04:40:59.404Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mszdqolp6x2a",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a7d1f2486733.jpg"
+          }
+        }
+      },
       "25T82": {
         "detectedAt": "2026-04-19T11:06:21.221Z",
         "platforms": {

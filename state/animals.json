@@ -1,8 +1,28 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T04:40:55.095Z",
+  "updatedAt": "2026-08-24T06:35:04.449Z",
   "data": {
     "animals": [
+      {
+        "id": "26N6",
+        "name": "いろは",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8772",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a8bc9c2c2801.jpg",
+        "firstSeenAt": "2026-08-24T06:35:04.449Z"
+      },
+      {
+        "id": "26N7",
+        "name": "にしき",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8773",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a8bd3123b4f0.jpg",
+        "firstSeenAt": "2026-08-24T06:35:04.449Z"
+      },
       {
         "id": "26ネ11",
         "name": "つらら",
@@ -22,6 +42,16 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a66f4916dbca.JPG",
         "firstSeenAt": "2026-07-27T12:10:04.598Z"
+      },
+      {
+        "id": "26F16",
+        "name": "あくび",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8718",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a7d298cbc8dd.JPG",
+        "firstSeenAt": "2026-08-24T06:35:04.449Z"
       },
       {
         "id": "25-66",

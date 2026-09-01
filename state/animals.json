@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-31T09:02:07.709Z",
+  "updatedAt": "2026-09-01T08:05:16.395Z",
   "data": {
     "animals": [
       {
@@ -24,6 +24,16 @@
         "firstSeenAt": "2026-08-24T06:35:04.449Z"
       },
       {
+        "id": "26ネ20",
+        "name": "ウラヌス",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8784",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967c3b40c7e.JPG",
+        "firstSeenAt": "2026-09-01T08:05:16.395Z"
+      },
+      {
         "id": "26ネ22",
         "name": "ヴィーナス",
         "category": "cat",
@@ -32,6 +42,16 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912f861402a.JPG",
         "firstSeenAt": "2026-08-28T14:41:46.964Z"
+      },
+      {
+        "id": "26ネ21",
+        "name": "サターン",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8786",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967e49a60e4.JPG",
+        "firstSeenAt": "2026-09-01T08:05:16.395Z"
       },
       {
         "id": "26ネ17",
@@ -62,6 +82,26 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a913dcacf2a6.JPG",
         "firstSeenAt": "2026-08-28T14:41:46.964Z"
+      },
+      {
+        "id": "26ネ14",
+        "name": "マーキュリー",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8785",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967d5f569e3.JPG",
+        "firstSeenAt": "2026-09-01T08:05:16.395Z"
+      },
+      {
+        "id": "26ネ15",
+        "name": "ジュピター",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8787",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967f257e881.JPG",
+        "firstSeenAt": "2026-09-01T08:05:16.395Z"
       },
       {
         "id": "26ネ10",
@@ -100,7 +140,7 @@
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8711",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a951da56093b.JPG",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a9643bde22dc.jpg",
         "firstSeenAt": "2026-05-28T06:42:53.241Z"
       },
       {

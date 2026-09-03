@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-02T01:54:42.427Z",
+  "updatedAt": "2026-09-03T07:28:13.061Z",
   "data": {
     "animals": [
       {
@@ -32,16 +32,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967c3b40c7e.JPG",
         "firstSeenAt": "2026-09-01T08:05:16.395Z"
-      },
-      {
-        "id": "26ネ22",
-        "name": "ヴィーナス",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8781",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912f861402a.JPG",
-        "firstSeenAt": "2026-08-28T14:41:46.964Z"
       },
       {
         "id": "26ネ21",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T07:28:13.061Z",
+  "updatedAt": "2026-09-10T07:36:17.621Z",
   "data": {
     "animals": [
       {
@@ -31,16 +31,6 @@
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8784",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967c3b40c7e.JPG",
-        "firstSeenAt": "2026-09-01T08:05:16.395Z"
-      },
-      {
-        "id": "26ネ21",
-        "name": "サターン",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8786",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967e49a60e4.JPG",
         "firstSeenAt": "2026-09-01T08:05:16.395Z"
       },
       {

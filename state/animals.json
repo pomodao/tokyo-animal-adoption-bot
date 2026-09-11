@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-10T07:36:17.621Z",
+  "updatedAt": "2026-09-11T01:59:26.266Z",
   "data": {
     "animals": [
       {
@@ -52,6 +52,16 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912e7105863.JPG",
         "firstSeenAt": "2026-08-28T14:41:46.964Z"
+      },
+      {
+        "id": "26N5",
+        "name": "サカモ",
+        "category": "cat",
+        "branch": "多摩支所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8795",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6aa231c805736.JPG",
+        "firstSeenAt": "2026-09-11T01:59:26.266Z"
       },
       {
         "id": "26ネ16",

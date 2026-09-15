@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-14T08:15:47.817Z",
+  "updatedAt": "2026-09-15T02:23:16.730Z",
   "data": {
     "animals": [
       {
@@ -12,16 +12,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a8bc9c2c2801.jpg",
         "firstSeenAt": "2026-08-24T06:35:04.449Z"
-      },
-      {
-        "id": "26ネ20",
-        "name": "ウラヌス",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8784",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a967c3b40c7e.JPG",
-        "firstSeenAt": "2026-09-01T08:05:16.395Z"
       },
       {
         "id": "26ネ17",

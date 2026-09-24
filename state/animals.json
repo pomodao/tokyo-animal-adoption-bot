@@ -1,8 +1,18 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T02:23:16.730Z",
+  "updatedAt": "2026-09-24T07:55:54.756Z",
   "data": {
     "animals": [
+      {
+        "id": "26ネ23",
+        "name": "たんば",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8801",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ab4a9029a1df.JPG",
+        "firstSeenAt": "2026-09-24T07:55:54.756Z"
+      },
       {
         "id": "26N6",
         "name": "いろは",
@@ -12,16 +22,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a8bc9c2c2801.jpg",
         "firstSeenAt": "2026-08-24T06:35:04.449Z"
-      },
-      {
-        "id": "26ネ17",
-        "name": "マーズ",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8779",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912d3d8ddf3.JPG",
-        "firstSeenAt": "2026-08-28T14:41:46.964Z"
       },
       {
         "id": "26ネ18",

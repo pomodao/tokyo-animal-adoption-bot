@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24T07:55:54.756Z",
+  "updatedAt": "2026-09-29T09:14:41.451Z",
   "data": {
     "animals": [
       {
@@ -22,16 +22,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a8bc9c2c2801.jpg",
         "firstSeenAt": "2026-08-24T06:35:04.449Z"
-      },
-      {
-        "id": "26ネ18",
-        "name": "アース",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8780",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912e7105863.JPG",
-        "firstSeenAt": "2026-08-28T14:41:46.964Z"
       },
       {
         "id": "26N5",

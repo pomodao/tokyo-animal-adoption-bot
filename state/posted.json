@@ -133,6 +133,16 @@
           }
         }
       },
+      "26C12": {
+        "detectedAt": "2026-10-06T01:35:34.832Z",
+        "platforms": {
+          "bluesky": {
+            "postedAt": "2026-10-06T01:35:37.740Z",
+            "remoteId": "at://did:plc:uf2o6d7eyltwlicdv2koietb/app.bsky.feed.post/3mx6c3zkqjb2a",
+            "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6abeff9600160.JPG"
+          }
+        }
+      },
       "26F1": {
         "detectedAt": "2026-05-27T06:54:09.948Z",
         "platforms": {

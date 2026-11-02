@@ -1,18 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30T11:50:21.108Z",
+  "updatedAt": "2026-11-02T10:15:18.518Z",
   "data": {
     "animals": [
-      {
-        "id": "26C12",
-        "name": "トン",
-        "category": "cat",
-        "branch": "多摩支所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8799",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6abeff9600160.JPG",
-        "firstSeenAt": "2026-10-06T01:35:32.842Z"
-      },
       {
         "id": "26N6",
         "name": "いろは",
@@ -32,16 +22,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ad718bcd1348.jpg",
         "firstSeenAt": "2026-09-11T01:59:26.266Z"
-      },
-      {
-        "id": "26ネ16",
-        "name": "ネプチューン",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8778",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a913dcacf2a6.JPG",
-        "firstSeenAt": "2026-08-28T14:41:46.964Z"
       },
       {
         "id": "25-66",
@@ -70,7 +50,7 @@
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8713",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a1e32bb5df29.jpg",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ae832e5b055e.jpg",
         "firstSeenAt": "2026-05-28T06:42:53.241Z"
       },
       {
@@ -90,7 +70,7 @@
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8762",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a7d1f2486733.jpg",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ae7fa91f3f1b.jpg",
         "firstSeenAt": "2026-08-14T04:40:55.095Z"
       }
     ]

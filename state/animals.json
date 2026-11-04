@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T10:15:18.518Z",
+  "updatedAt": "2026-11-04T10:07:57.701Z",
   "data": {
     "animals": [
       {
@@ -60,7 +60,7 @@
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8761",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a9775aa7b50e.JPG",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6aea8ee88e396.jpg",
         "firstSeenAt": "2026-08-14T04:40:55.095Z"
       },
       {
@@ -70,7 +70,7 @@
         "branch": "多摩支所",
         "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8762",
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ae7fa91f3f1b.jpg",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6aea8efab585b.jpg",
         "firstSeenAt": "2026-08-14T04:40:55.095Z"
       }
     ]

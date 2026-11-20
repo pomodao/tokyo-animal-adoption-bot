@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T10:21:21.897Z",
+  "updatedAt": "2026-11-20T10:43:08.474Z",
   "data": {
     "animals": [
       {
@@ -12,16 +12,6 @@
         "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
         "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6ad5d381064e0.jpg",
         "firstSeenAt": "2026-08-24T06:35:04.449Z"
-      },
-      {
-        "id": "26ネ17",
-        "name": "マーズ",
-        "category": "cat",
-        "branch": "本所",
-        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8779",
-        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
-        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/upload/6a912d3d8ddf3.JPG",
-        "firstSeenAt": "2026-11-16T10:21:21.897Z"
       },
       {
         "id": "26N5",

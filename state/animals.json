@@ -1,8 +1,18 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-20T10:43:08.474Z",
+  "updatedAt": "2026-11-24T07:32:08.048Z",
   "data": {
     "animals": [
+      {
+        "id": "26ネ24",
+        "name": "しずか",
+        "category": "cat",
+        "branch": "本所",
+        "detailUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8841",
+        "sourceUrl": "https://shuyojoho.metro.tokyo.lg.jp/generals/cat",
+        "imageUrl": "https://shuyojoho.metro.tokyo.lg.jp/img/cat.jpg",
+        "firstSeenAt": "2026-11-24T07:32:08.048Z"
+      },
       {
         "id": "26N6",
         "name": "いろは",
